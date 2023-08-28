@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	font-family: "Pretendard Medium", sans-serif;
+	@apply break-words break-keep;
+	@apply subpixel-antialiased;
+}

@@ -1,0 +1,14 @@
+.header {
+	position: fixed;
+	width: 100%;
+	background: {
+		image: linear-gradient(to right, #eeeeee 25%, #00adb5, #222831);
+	}
+	padding: 0.5rem;
+	z-index: 1;
+
+	.text {
+		text-align: left;
+		font-size: 2rem;
+	}
+}

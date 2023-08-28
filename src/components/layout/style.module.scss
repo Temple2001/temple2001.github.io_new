@@ -1,0 +1,9 @@
+.main {
+	// min, max, calc로 네비게이션바 최대 사이즈에 따라 크기 조정
+	position: absolute;
+	box-sizing: border-box;
+	top: 4rem;
+	left: min(30%, 20rem);
+	width: max(70%, calc(100% - 20rem));
+	padding: 1rem;
+}

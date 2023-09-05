@@ -18,3 +18,12 @@
 .heading4 {
 	font-size: 1.6rem;
 }
+
+.category {
+	display: flex;
+	flex-direction: row;
+}
+
+.postBox {
+	padding: 1rem;
+}

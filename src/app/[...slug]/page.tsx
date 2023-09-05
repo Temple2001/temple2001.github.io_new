@@ -1,41 +1,63 @@
-import { allDocuments, allPosts } from "@/contentlayer/generated";
+import {
+	Category,
+	Post,
+	allCategories,
+	allDocuments,
+	allPosts,
+} from "@/contentlayer/generated";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import styles from "./style.module.scss";
+import { mdxComponents } from "@/components/MDXComponents";
+import Link from "next/link";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
-	const target = allDocuments.find((doc) => {
-		return slug.join("/") === doc._raw.flattenedPath;
+	let target: Post | Category | undefined = allPosts.find((post) => {
+		return slug.join("/") === post._raw.flattenedPath;
 	});
 
 	if (!target) {
-		return <></>; // TODO : "글을 찾을 수 없습니다" 페이지
+		target = allCategories.find((category) => {
+			return slug.join("/") === category._raw.sourceFileDir;
+		});
+	}
+
+	if (!target) {
+		return <></>;
 	}
 
 	if (target.type === "Post") {
 		const MDXContent = getMDXComponent(target.body.code);
 		return (
-			<div>
-				<h1>{target.title}</h1>
-				<h3>{target.description}</h3>
-				<MDXContent />
+			<div className={styles.post}>
+				<div className={styles.title}>{target.title}</div>
+				<div className={styles.description}>{target.description}</div>
+				<div className={styles.border} />
+				<MDXContent components={mdxComponents} />
 			</div>
 		);
 	} else if (target.type === "Category") {
-		const posts = allPosts.filter((post) =>
-			post._raw.flattenedPath.startsWith(target._raw.sourceFileDir)
-		);
+		const posts = allPosts.filter((post) => {
+			const dir = target?._raw.sourceFileDir;
+			if (dir) {
+				return post._raw.flattenedPath.startsWith(dir);
+			} else {
+				return false;
+			}
+		});
 		return (
-			<div>
-				<p>{target.title}</p>
-				<p>{target.description}</p>
-				<div className={styles.category}>
+			<div className={styles.category}>
+				<div className={styles.title}>{target.title}</div>
+				<div className={styles.description}>{target.description}</div>
+				<div>
 					{posts.map((post) => {
 						return (
-							<div className={styles.postBox}>
-								<p>글 제목 : {post.title}</p>
-								<p>글 설명 : {post.description}</p>
-							</div>
+							<Link href={"/" + post._raw.flattenedPath}>
+								<div className={styles.postBox}>
+									<p>글 제목 : {post.title}</p>
+									<p>글 설명 : {post.description}</p>
+								</div>
+							</Link>
 						);
 					})}
 				</div>
@@ -48,7 +70,8 @@ export async function generateStaticParams() {
 	const docs = allDocuments;
 
 	return docs.map((doc) => {
-		const path = doc._raw.flattenedPath;
+		let path = doc._raw.flattenedPath;
+		if (path.endsWith(".json")) path = doc._raw.sourceFileDir;
 		return {
 			slug: path.split("/"),
 		};

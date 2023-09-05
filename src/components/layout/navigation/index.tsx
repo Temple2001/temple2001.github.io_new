@@ -16,12 +16,12 @@ function LeafNode({ trees }: { trees: CategoryTree[] }) {
 	if (trees.length === 0) return;
 
 	return (
-		<div>
+		<div className={styles.category}>
 			{trees.map((tree) => {
 				if (tree.category) {
 					return (
-						<div className={styles.category}>
-							<Link href={"/" + tree.category._raw.flattenedPath}>
+						<div className={styles.leafCategory}>
+							<Link href={"/" + tree.category._raw.sourceFileDir}>
 								{tree.category.title}
 							</Link>
 							<LeafNode trees={tree.children} />

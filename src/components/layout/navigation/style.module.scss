@@ -3,10 +3,20 @@
 	box-sizing: border-box;
 	top: 4rem;
 	width: 30%;
-	padding: 1rem;
+	height: 88%;
+	margin-top: 1.5rem;
+	padding: 1rem 1rem 3rem 1rem;
 	max-width: 20rem;
+	border-right: 1px solid;
 }
 
 .category {
-	padding-left: 0.5rem;
+	font-weight: 500;
+	font-size: 1.2rem;
+	padding-bottom: 0.5rem;
+}
+
+.leafCategory {
+	padding-left: 0.6rem;
+	padding-top: 0.3rem;
 }

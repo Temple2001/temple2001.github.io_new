@@ -1,29 +1,49 @@
-.heading {
-	font-weight: 800;
-	letter-spacing: -0.1rem;
+.layout {
+	margin-top: 1.5rem;
 }
 
-.heading1 {
-	font-size: 2.8rem;
-}
+.post {
+	padding-left: 1rem;
+	padding-right: 1rem;
+	max-width: 55rem;
+	margin: auto;
 
-.heading2 {
-	font-size: 2.4rem;
-}
+	.title {
+		font-size: 3rem;
+		line-height: 1;
+		font-weight: 600;
+		padding-bottom: 0.5rem;
+	}
 
-.heading3 {
-	font-size: 2rem;
-}
+	.description {
+		font-size: 1.5rem;
+		font-weight: 500;
+		padding-bottom: 1rem;
+	}
 
-.heading4 {
-	font-size: 1.6rem;
+	.border {
+		border-top: 1px solid black;
+		padding-bottom: 2rem;
+	}
 }
 
 .category {
-	display: flex;
-	flex-direction: row;
-}
+	padding-left: 3rem;
+	padding-right: 3rem;
+	.title {
+		font-size: 3rem;
+		line-height: 1;
+		font-weight: 600;
+		padding-bottom: 0.5rem;
+	}
 
-.postBox {
-	padding: 1rem;
+	.description {
+		font-size: 1.5rem;
+		font-weight: 500;
+		padding-bottom: 1rem;
+	}
+
+	.postBox {
+		padding: 1rem;
+	}
 }

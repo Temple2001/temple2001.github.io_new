@@ -1,14 +1,15 @@
 .header {
 	position: fixed;
 	width: 100%;
-	background: {
-		image: linear-gradient(to right, #eeeeee 25%, #00adb5, #222831);
-	}
-	padding: 0.5rem;
+	padding: 0.5rem 1.5rem;
+	background: linear-gradient(110deg, black 9.9rem, white 9.9rem);
+	border-bottom: 2px solid;
 	z-index: 1;
 
 	.text {
-		text-align: left;
+		display: inline;
 		font-size: 2rem;
+		color: white;
+		mix-blend-mode: difference;
 	}
 }

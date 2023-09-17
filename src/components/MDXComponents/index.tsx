@@ -1,5 +1,6 @@
 import { MDXComponents } from "mdx/types";
 import styles from "./style.module.scss";
+import Image from "../layout/image";
 
 export const mdxComponents: MDXComponents = {
 	h1: ({ children }) => (
@@ -14,4 +15,5 @@ export const mdxComponents: MDXComponents = {
 	h4: ({ children }) => (
 		<h4 className={`${styles.heading} ${styles.heading4}`}>{children}</h4>
 	),
+	Image,
 };

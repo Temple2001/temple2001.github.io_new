@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export const Post = defineDocumentType(() => ({
 	name: "Post",
@@ -18,14 +19,12 @@ export const Post = defineDocumentType(() => ({
 			required: true,
 		},
 	},
-	/*
 	computedFields: {
-		path: {
+		publicPath: {
 			type: "string",
-			resolve: (post) => post._raw.sourceFileDir,
+			resolve: (post) => "/" + post._raw.flattenedPath,
 		},
 	},
-	*/
 }));
 
 export const Category = defineDocumentType(() => ({
@@ -43,12 +42,17 @@ export const Category = defineDocumentType(() => ({
 	},
 }));
 
+/** @type {import('rehype-pretty-code').Options} */
+const rehypeOptions = {
+	grid: true,
+	theme: "one-dark-pro",
+};
+
 const contentSource = makeSource({
 	contentDirPath: "posts",
 	documentTypes: [Post, Category],
 	mdx: {
-		remarkPlugins: [],
-		rehypePlugins: [],
+		rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
 	},
 });
 export default contentSource;

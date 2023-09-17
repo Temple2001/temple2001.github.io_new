@@ -3,7 +3,8 @@
 	width: 100%;
 	padding: 0.5rem 1.5rem;
 	background: linear-gradient(110deg, black 9.9rem, white 9.9rem);
-	border-bottom: 2px solid;
+	border-bottom: 1px solid;
+	box-shadow: 0px 0px 10px -1px grey;
 	z-index: 1;
 
 	.text {

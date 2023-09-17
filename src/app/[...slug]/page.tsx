@@ -8,7 +8,7 @@ import {
 import { getMDXComponent } from "next-contentlayer/hooks";
 import styles from "./style.module.scss";
 import { mdxComponents } from "@/components/MDXComponents";
-import Link from "next/link";
+import PostBox from "@/components/layout/postbox";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
@@ -33,7 +33,9 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 				<div className={styles.title}>{target.title}</div>
 				<div className={styles.description}>{target.description}</div>
 				<div className={styles.border} />
-				<MDXContent components={mdxComponents} />
+				<div className={styles.codeblock}>
+					<MDXContent components={mdxComponents} />
+				</div>
 			</div>
 		);
 	} else if (target.type === "Category") {
@@ -45,20 +47,16 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 				return false;
 			}
 		});
+		const orderedPosts = posts.sort(
+			(a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
+		);
 		return (
 			<div className={styles.category}>
 				<div className={styles.title}>{target.title}</div>
 				<div className={styles.description}>{target.description}</div>
-				<div>
-					{posts.map((post) => {
-						return (
-							<Link href={"/" + post._raw.flattenedPath}>
-								<div className={styles.postBox}>
-									<p>글 제목 : {post.title}</p>
-									<p>글 설명 : {post.description}</p>
-								</div>
-							</Link>
-						);
+				<div className={styles.flexBox}>
+					{orderedPosts.map((post) => {
+						return <PostBox post={post} />;
 					})}
 				</div>
 			</div>

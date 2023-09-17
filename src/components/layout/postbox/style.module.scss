@@ -1,0 +1,44 @@
+.outside {
+	width: 50%;
+
+	.postBox {
+		background: linear-gradient(110deg, white 50%, black 50%);
+		padding: 1rem 1.5rem;
+		margin-right: 10%;
+		margin-bottom: 2rem;
+		border: 1px solid black;
+		border-radius: 0.5rem;
+		box-shadow: 3px 5px 10px -5px grey;
+
+		.title {
+			color: white;
+			font-size: 1.8rem;
+			font-weight: 600;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-bottom: 0.5rem;
+			mix-blend-mode: difference;
+		}
+
+		.description {
+			color: white;
+			font-size: 1rem;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			margin-bottom: 1rem;
+			mix-blend-mode: difference;
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.outside {
+		width: 100%;
+
+		.postBox {
+			margin-right: 0;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+.category {
+	padding: 0 3rem;
+
+	.title {
+		font-size: 3rem;
+		font-weight: 600;
+		padding-bottom: 0.5rem;
+	}
+
+	.description {
+		font-size: 1.1rem;
+		font-style: italic;
+		padding-bottom: 3rem;
+	}
+
+	.flexBox {
+		display: flex;
+		flex-wrap: wrap;
+		padding-top: 2rem;
+	}
+}

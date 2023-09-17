@@ -69,7 +69,7 @@ export async function generateStaticParams() {
 
 	return docs.map((doc) => {
 		let path = doc._raw.flattenedPath;
-		if (path.endsWith(".json")) path = doc._raw.sourceFileDir;
+		if (path.endsWith("_meta")) path = doc._raw.sourceFileDir;
 		return {
 			slug: path.split("/"),
 		};

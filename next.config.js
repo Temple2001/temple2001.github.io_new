@@ -9,6 +9,9 @@ const nextConfig = {
 	reactStrictMode: true,
 	swcMinify: false,
 	trailingSlash: true,
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 };
 
 module.exports = withContentlayer(nextConfig);

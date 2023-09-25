@@ -8,3 +8,10 @@
 	padding: 1rem;
 	margin-top: 1.5rem;
 }
+
+@media screen and (max-width: 800px) {
+	.main {
+		left: 0;
+		width: 100%;
+	}
+}

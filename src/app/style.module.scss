@@ -1,6 +1,4 @@
 .category {
-	padding: 0 3rem;
-
 	.title {
 		font-size: 3rem;
 		font-weight: 600;
@@ -15,7 +13,9 @@
 
 	.flexBox {
 		display: flex;
+		flex-direction: row;
 		flex-wrap: wrap;
+		gap: 2rem;
 		padding-top: 2rem;
 	}
 }

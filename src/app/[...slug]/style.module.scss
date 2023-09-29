@@ -1,6 +1,4 @@
 .post {
-	padding-left: 1rem;
-	padding-right: 1rem;
 	max-width: 55rem;
 	margin: auto;
 
@@ -23,9 +21,6 @@
 }
 
 .category {
-	padding-left: 3%;
-	padding-right: 3%;
-
 	.title {
 		font-size: 3rem;
 		font-weight: 600;
@@ -40,7 +35,10 @@
 
 	.flexBox {
 		display: flex;
+		flex-direction: row;
 		flex-wrap: wrap;
+		gap: 2rem;
+		padding-top: 2rem;
 	}
 }
 

@@ -1,18 +1,32 @@
+"use client";
+
 import Link from "next/link";
 import styles from "./style.module.scss";
 import { metadata } from "@/lib/constants";
-import TabKey from "../../../../public/assets/tab-key.svg";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { useNavContext } from "@/lib/navContext";
+import { classNames } from "@/lib/classnames";
 
 export default function Header() {
-	return (
-		<div className={styles.header}>
-			<Link href={"/"}>
-				<div className={styles.text}>{metadata.blogName}</div>
-			</Link>
-			<div className={styles.tabKey}>
+	const [open, setOpen] = useNavContext();
 
+	return (
+		<>
+			<div className={styles.headerWrapper}>
+				<div id="header" className={styles.header}>
+					<Link href={"/"}>
+						<div className={styles.text}>{metadata.blogName}</div>
+					</Link>
+					<div
+						{...classNames(styles.tabKey, open && styles.open)}
+						onClick={() => setOpen(!open)}
+					>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 }

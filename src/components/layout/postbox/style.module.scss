@@ -1,45 +1,39 @@
 .outside {
-	width: 50%;
+	width: calc(50% - 2rem);
+
+	@media screen and (max-width: 1280px) {
+		width: 100%;
+	}
+
+	min-width: none;
+	max-width: none;
+	border-radius: 0.5rem;
+	border: 1px solid black;
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+
+	&:nth-child(even) {
+		background-color: black;
+		color: white;
+	}
 
 	.postBox {
-		background: linear-gradient(110deg, white 50%, black 50%);
 		padding: 1rem 1.5rem;
-		margin-right: 10%;
-		margin-bottom: 2rem;
-		border: 1px solid black;
-		border-radius: 0.5rem;
-		box-shadow: 3px 5px 10px -5px grey;
 
 		.title {
-			color: white;
 			font-size: 1.8rem;
-			font-weight: 450;
+			font-weight: 600;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			margin-bottom: 0.5rem;
-			mix-blend-mode: difference;
 		}
 
 		.description {
-			color: white;
 			font-size: 1rem;
-			font-weight: 200;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
 			margin-bottom: 1rem;
-			mix-blend-mode: difference;
-		}
-	}
-}
-
-@media screen and (max-width: 1200px) {
-	.outside {
-		width: 100%;
-
-		.postBox {
-			margin-right: 0;
 		}
 	}
 }

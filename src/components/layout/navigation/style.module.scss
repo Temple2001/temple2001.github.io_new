@@ -1,19 +1,27 @@
+.navWrapper {
+	width: 30%;
+	max-width: 320px;
+}
+
 .navigation {
 	position: fixed;
 	box-sizing: border-box;
 	top: 4rem;
-	width: 30%;
-	height: 88%;
-	margin-top: 1.5rem;
-	padding: 1rem 1rem 3rem 1rem;
-	max-width: 20rem;
-	border-right: 1px solid;
+	width: inherit;
+	max-width: inherit;
+	overflow-y: auto;
+	height: calc(100vh - 4rem);
+	padding: 1.5rem 1rem;
+	background-color: rgba(255, 255, 255, 0.9);
+	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	backdrop-filter: blur(1rem);
+	z-index: 90;
 }
 
 .category {
 	font-weight: 500;
-	font-size: 1.2rem;
-	padding-bottom: 0.5rem;
+	font-size: 1.1rem;
+	color: rgba(0, 0, 0, 0.75);
 }
 
 .leafCategory {
@@ -21,8 +29,26 @@
 	padding-top: 0.3rem;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
+	.navWrapper {
+		width: 0;
+		max-width: none;
+	}
+
 	.navigation {
-		display: none;
+		width: 100%;
+		margin-left: -100%;
+		border-right: none;
+
+		transition-delay: 0s;
+		transition-duration: 0.5s;
+		transition-property: all;
+		transition-timing-function: cubic-bezier(0.65, 0, 0.35, 1);
+		opacity: 0;
+
+		&.open {
+			margin-left: 0;
+			opacity: 1;
+		}
 	}
 }

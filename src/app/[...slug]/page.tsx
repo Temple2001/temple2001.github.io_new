@@ -9,6 +9,7 @@ import { getMDXComponent } from "next-contentlayer/hooks";
 import styles from "./style.module.scss";
 import { mdxComponents } from "@/components/MDXComponents";
 import PostBox from "@/components/layout/postbox";
+import { Container } from "@/components/layout/container";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
@@ -29,14 +30,16 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 	if (target.type === "Post") {
 		const MDXContent = getMDXComponent(target.body.code);
 		return (
-			<div className={styles.post}>
-				<div className={styles.title}>{target.title}</div>
-				<div className={styles.description}>{target.description}</div>
-				<div className={styles.border} />
-				<div className={styles.codeblock}>
-					<MDXContent components={mdxComponents} />
+			<Container>
+				<div className={styles.post}>
+					<div className={styles.title}>{target.title}</div>
+					<div className={styles.description}>{target.description}</div>
+					<div className={styles.border} />
+					<div className={styles.codeblock}>
+						<MDXContent components={mdxComponents} />
+					</div>
 				</div>
-			</div>
+			</Container>
 		);
 	} else if (target.type === "Category") {
 		const posts = allPosts.filter((post) => {
@@ -51,15 +54,17 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 			(a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
 		);
 		return (
-			<div className={styles.category}>
-				<div className={styles.title}>{target.title}</div>
-				<div className={styles.description}>{target.description}</div>
-				<div className={styles.flexBox}>
-					{orderedPosts.map((post) => {
-						return <PostBox post={post} />;
-					})}
+			<Container>
+				<div className={styles.category}>
+					<div className={styles.title}>{target.title}</div>
+					<div className={styles.description}>{target.description}</div>
+					<div className={styles.flexBox}>
+						{orderedPosts.map((post) => {
+							return <PostBox post={post} />;
+						})}
+					</div>
 				</div>
-			</div>
+			</Container>
 		);
 	}
 }

@@ -19,12 +19,14 @@ export const Post = defineDocumentType(() => ({
 			required: true,
 		},
 	},
+	/*
 	computedFields: {
 		publicPath: {
 			type: "string",
 			resolve: (post) => "/" + post._raw.flattenedPath,
 		},
 	},
+	*/
 }));
 
 export const Category = defineDocumentType(() => ({

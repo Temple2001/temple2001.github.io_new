@@ -9,6 +9,9 @@ export default function PostBox({ post }: { post: Post }) {
 				<div className={styles.postBox}>
 					<div className={styles.title}>{post.title}</div>
 					<div className={styles.description}>{post.description}</div>
+					<div className={styles.time}>
+						{new Date(post.createdAt).toLocaleDateString("ko-KR")}
+					</div>
 				</div>
 			</Link>
 		</div>

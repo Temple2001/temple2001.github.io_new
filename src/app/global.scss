@@ -1,7 +1,14 @@
+@use "./themes.scss" as *;
 @tailwind base;
 
 * {
 	font-family: "Pretendard Variable", sans-serif;
 	@apply break-words break-keep;
 	@apply subpixel-antialiased;
+}
+
+html,
+body {
+	background-color: var(--color-bg);
+	color: var(--color-text);
 }

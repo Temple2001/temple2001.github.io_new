@@ -5,16 +5,17 @@
 		width: 100%;
 	}
 
-	min-width: none;
-	max-width: none;
-	border-radius: 0.5rem;
-	border: 1px solid black;
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	border-radius: 1rem;
+	border: 1px solid var(--color-box-border);
+	background-color: var(--color-box);
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 
+	/*
 	&:nth-child(even) {
 		background-color: black;
 		color: white;
 	}
+	*/
 
 	.postBox {
 		padding: 1rem 1.5rem;
@@ -29,11 +30,17 @@
 		}
 
 		.description {
-			font-size: 1rem;
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
-			margin-bottom: 1rem;
+		}
+
+		.time {
+			font-size: 0.9rem;
+			font-style: italic;
+			font-weight: 600;
+			text-align: right;
+			opacity: 0.7;
 		}
 	}
 }

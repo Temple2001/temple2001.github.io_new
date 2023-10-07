@@ -1,5 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypePrettyCode from "rehype-pretty-code";
+import remarkToc from "remark-toc";
+import remarkBreaks from "remark-breaks";
 
 export const Post = defineDocumentType(() => ({
 	name: "Post",
@@ -54,6 +56,7 @@ const contentSource = makeSource({
 	contentDirPath: "posts",
 	documentTypes: [Post, Category],
 	mdx: {
+		remarkPlugins: [remarkBreaks, [remarkToc, { heading: "목차" }]],
 		rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
 	},
 });

@@ -38,7 +38,7 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 						{new Date(target.createdAt).toLocaleDateString("ko-KR")}
 					</div>
 					<div className={styles.border} />
-					<div className={styles.codeblock}>
+					<div className={styles.contentStyle}>
 						<MDXContent components={mdxComponents} />
 					</div>
 				</div>

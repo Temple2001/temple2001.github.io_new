@@ -1,3 +1,5 @@
+"use client";
+
 import styles from "./style.module.scss";
 import Children from "@/components/Children";
 import Header from "@/components/layout/header";

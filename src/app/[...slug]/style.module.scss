@@ -52,7 +52,7 @@
 	}
 }
 
-.codeblock {
+.contentStyle {
 	font-weight: 500;
 
 	div[data-rehype-pretty-code-fragment] {
@@ -61,7 +61,7 @@
 		> pre {
 			padding: 1rem;
 			border-radius: 0.5rem;
-			box-shadow: 0px 0px 10px -2px black;
+			box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 		}
 	}
 

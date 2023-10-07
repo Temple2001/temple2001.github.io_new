@@ -1,5 +1,3 @@
-"use client";
-
 import { CategoryTree, makeCategoryTree } from "@/lib/api";
 import styles from "./style.module.scss";
 import Link from "next/link";

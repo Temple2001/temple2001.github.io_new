@@ -3,7 +3,6 @@
 import Link from "next/link";
 import styles from "./style.module.scss";
 import { metadata } from "@/lib/constants";
-import { useEffect, useRef } from "react";
 import { useNavContext } from "@/lib/navContext";
 import { classNames } from "@/lib/classnames";
 

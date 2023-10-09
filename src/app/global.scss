@@ -11,4 +11,7 @@ html,
 body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
+
+	transition: background-color 0.5s var(--style-darkmode-transition),
+		color 0.5s var(--style-darkmode-transition);
 }

@@ -50,5 +50,5 @@ export const mdxComponents: MDXComponents = {
 	p: ({ children }) => <p className={styles.p}>{children}</p>,
 	img: (props) => <img {...props} className={styles.img} />,
 	ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
-	li: ({ children }) => <li className={styles.li}>- {children}</li>,
+	li: ({ children }) => <li className={styles.li}>· {children}</li>,
 };

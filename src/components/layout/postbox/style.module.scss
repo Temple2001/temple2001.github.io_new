@@ -8,15 +8,16 @@
 	border-radius: 1rem;
 	border: 1px solid var(--color-box-border);
 	background-color: var(--color-box);
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-
+	box-shadow: var(--color-shadow);
+	transition: background-color 0.5s var(--style-darkmode-transition),
+		border 0.5s var(--style-darkmode-transition),
+		box-shadow 0.5s var(--style-darkmode-transition);
 	/*
 	&:nth-child(even) {
 		background-color: black;
 		color: white;
 	}
 	*/
-
 	.postBox {
 		padding: 1rem 1.5rem;
 

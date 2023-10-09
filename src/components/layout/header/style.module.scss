@@ -13,13 +13,22 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	background: linear-gradient(
-		110deg,
-		var(--color-header-left) 9.2rem,
-		var(--color-header-right) 9.2rem
-	);
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	background-color: var(--color-header-right);
+	box-shadow: var(--color-shadow);
 	z-index: 100;
+	transition: background-color 0.5s var(--style-darkmode-transition),
+		box-shadow 0.5s var(--style-darkmode-transition);
+
+	.leftBlock {
+		position: fixed;
+		width: 10rem;
+		height: inherit;
+		left: 0;
+		top: 0;
+		background-color: var(--color-header-left);
+		transform: skew(-20deg) translate(-0.9rem, 0px);
+		transition: inherit;
+	}
 
 	.text {
 		display: inline;

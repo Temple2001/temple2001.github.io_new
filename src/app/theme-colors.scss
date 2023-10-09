@@ -1,27 +1,38 @@
 // Light Theme
 $bg-color-light: #fcfcfc;
 $text-color-light: #000;
+$toc-text-color-light: rgba(0, 0, 0, 0.6);
 
 $box-color-light: #fff;
 $box-border-color-light: #cccccc;
 
 $border-color-light: #cacaca;
 
+$shadow-color-light: 0px 2px 5px rgba(0, 0, 0, 0.15);
+
 $header-left-color-light: #000;
 $header-right-color-light: #fff;
 
 $navigation-color-light: rgba(255, 255, 255, 0.8);
+$navigation-highlight-color-light: rgba(0, 0, 0, 0.2);
 
 // Dark Theme
 $bg-color-dark: #2c2c2c;
 $text-color-dark: #fff;
+$toc-text-color-dark: rgba(255, 255, 255, 0.65);
 
 $box-color-dark: #242424;
 $box-border-color-dark: #5a5a5a;
 
 $border-color-dark: #636363;
 
+$shadow-color-dark: 0px 2px 4px rgba(0, 0, 0, 0.5);
+
 $header-left-color-dark: #fff;
 $header-right-color-dark: #000;
 
 $navigation-color-dark: rgba(0, 0, 0, 0.4);
+$navigation-highlight-color-dark: rgba(255, 255, 255, 0.3);
+
+// Common
+$darkmode-transition: cubic-bezier(0.87, 0, 0.13, 1);

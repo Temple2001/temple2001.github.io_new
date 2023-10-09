@@ -13,6 +13,7 @@ export default function Header() {
 		<>
 			<div className={styles.headerWrapper}>
 				<div id="header" className={styles.header}>
+					<div className={styles.leftBlock} />
 					<Link href={"/"}>
 						<div className={styles.text}>{metadata.blogName}</div>
 					</Link>

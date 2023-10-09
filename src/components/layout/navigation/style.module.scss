@@ -1,6 +1,8 @@
 .navWrapper {
 	width: 30%;
 	max-width: 320px;
+	font-weight: 700;
+	font-size: 1.2rem;
 }
 
 .navigation {
@@ -11,21 +13,35 @@
 	max-width: inherit;
 	overflow-y: auto;
 	height: calc(100vh - 4rem);
-	padding: 1.5rem 1rem;
+	padding: 1.5rem 0;
+	padding-right: 1rem;
 	background-color: var(--color-navigation);
-	box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.15);
+	box-shadow: var(--color-shadow);
 	backdrop-filter: blur(2rem);
+	transition: background-color 0.5s var(--style-darkmode-transition),
+		box-shadow 0.5s var(--style-darkmode-transition);
 	z-index: 90;
 }
 
-.category {
-	font-weight: 500;
-	font-size: 1.1rem;
+.leafCategory {
+	padding-left: 1rem;
+	padding-top: 0.2rem;
 }
 
-.leafCategory {
-	padding-left: 0.6rem;
-	padding-top: 0.3rem;
+.link {
+	width: 100%;
+	border-radius: 0.5rem;
+	padding: 0.2rem 0.5rem;
+
+	transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+	&:hover {
+		background-color: var(--color-navigation-highlight);
+	}
+}
+
+.selected {
+	background-color: var(--color-navigation-highlight);
 }
 
 @media screen and (max-width: 1024px) {

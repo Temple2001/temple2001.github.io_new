@@ -12,6 +12,6 @@ body {
 	background-color: var(--color-bg);
 	color: var(--color-text);
 
-	transition: background-color 0.5s var(--style-darkmode-transition),
-		color 0.5s var(--style-darkmode-transition);
+	transition: background-color var(--style-darkmode-transition),
+		color var(--style-darkmode-transition);
 }

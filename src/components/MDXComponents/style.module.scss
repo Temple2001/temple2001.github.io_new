@@ -24,6 +24,7 @@
 	width: 100%;
 	height: 1px;
 	background-color: var(--color-border);
+	transition: background-color var(--style-darkmode-transition);
 	margin-top: 0.5rem;
 	margin-bottom: 2rem;
 }
@@ -33,7 +34,7 @@
 	border-radius: 0.5rem;
 	margin: 0 auto;
 	box-shadow: var(--color-shadow);
-	transition: box-shadow 0.5s var(--style-darkmode-transition);
+	transition: box-shadow var(--style-darkmode-transition);
 }
 
 .p {

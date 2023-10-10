@@ -26,6 +26,7 @@
 		width: 100%;
 		height: 2px;
 		background-color: var(--color-border);
+		transition: background-color var(--style-darkmode-transition);
 		margin-bottom: 5rem;
 	}
 }
@@ -62,7 +63,7 @@
 			padding: 1rem;
 			border-radius: 0.5rem;
 			box-shadow: var(--color-shadow);
-			transition: box-shadow 0.5s var(--style-darkmode-transition);
+			transition: box-shadow var(--style-darkmode-transition);
 		}
 	}
 

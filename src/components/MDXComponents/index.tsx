@@ -14,6 +14,7 @@ export const mdxComponents: MDXComponents = {
 			<div className={styles.border} />
 		</>
 	),
+
 	h2: ({ children }) => (
 		<>
 			<h2
@@ -25,6 +26,7 @@ export const mdxComponents: MDXComponents = {
 			<div className={styles.border} />
 		</>
 	),
+
 	h3: ({ children }) => (
 		<>
 			<h3
@@ -36,6 +38,7 @@ export const mdxComponents: MDXComponents = {
 			<div className={styles.border} />
 		</>
 	),
+
 	h4: ({ children }) => (
 		<>
 			<h4
@@ -47,8 +50,18 @@ export const mdxComponents: MDXComponents = {
 			<div className={styles.border} />
 		</>
 	),
+
 	p: ({ children }) => <p className={styles.p}>{children}</p>,
+
 	img: (props) => <img {...props} className={styles.img} />,
+
 	ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
-	li: ({ children }) => <li className={styles.li}>· {children}</li>,
+
+	li: ({ children }) => (
+		<li className={styles.li}>·&nbsp;&nbsp;&nbsp;{children}</li>
+	),
+
+	strong: ({ children }) => (
+		<strong className={styles.strong}>{children}</strong>
+	),
 };

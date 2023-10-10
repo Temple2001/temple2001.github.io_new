@@ -13,8 +13,8 @@
 	max-width: inherit;
 	overflow-y: auto;
 	height: calc(100vh - 4rem);
-	padding: 1.5rem 0;
-	padding-right: 1rem;
+	padding: 1.2rem 0;
+	padding-right: 1.5rem;
 	background-color: var(--color-navigation);
 	box-shadow: var(--color-shadow);
 	backdrop-filter: blur(2rem);
@@ -24,7 +24,11 @@
 }
 
 .leafCategory {
-	padding-left: 1rem;
+	padding-left: 1.2rem;
+	padding-bottom: 1rem;
+}
+
+.items {
 	padding-top: 0.2rem;
 }
 

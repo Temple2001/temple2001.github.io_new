@@ -6,7 +6,7 @@ import remarkBreaks from "remark-breaks";
 export const Post = defineDocumentType(() => ({
 	name: "Post",
 	contentType: "mdx",
-	filePathPattern: "**/*.mdx",
+	filePathPattern: "**/_post.mdx",
 	fields: {
 		title: {
 			type: "string",
@@ -34,7 +34,7 @@ export const Post = defineDocumentType(() => ({
 export const Category = defineDocumentType(() => ({
 	name: "Category",
 	contentType: "data",
-	filePathPattern: "**/*.json",
+	filePathPattern: "**/_meta.json",
 	fields: {
 		title: {
 			type: "string",
@@ -49,11 +49,11 @@ export const Category = defineDocumentType(() => ({
 /** @type {import('rehype-pretty-code').Options} */
 const rehypeOptions = {
 	grid: true,
-	theme: "one-dark-pro",
+	theme: "github-dark",
 };
 
 const contentSource = makeSource({
-	contentDirPath: "posts",
+	contentDirPath: "public",
 	documentTypes: [Post, Category],
 	mdx: {
 		remarkPlugins: [remarkBreaks, [remarkToc, { heading: "목차" }]],

@@ -13,15 +13,9 @@ import { Container } from "@/components/layout/container";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
-	let target: Post | Category | undefined = allPosts.find((post) => {
-		return slug.join("/") === post._raw.flattenedPath;
+	const target = allDocuments.find((docs) => {
+		return slug.join("/") === docs._raw.sourceFileDir;
 	});
-
-	if (!target) {
-		target = allCategories.find((category) => {
-			return slug.join("/") === category._raw.sourceFileDir;
-		});
-	}
 
 	if (!target) {
 		return <></>;
@@ -46,15 +40,15 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 		);
 	} else if (target.type === "Category") {
 		const posts = allPosts.filter((post) => {
-			const dir = target?._raw.sourceFileDir;
+			const dir = target._raw.sourceFileDir;
 			if (dir) {
-				return post._raw.flattenedPath.startsWith(dir);
+				return post._raw.sourceFileDir.startsWith(dir);
 			} else {
 				return false;
 			}
 		});
 		const orderedPosts = posts.sort(
-			(a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
+			(a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
 		);
 		return (
 			<Container>
@@ -76,8 +70,7 @@ export async function generateStaticParams() {
 	const docs = allDocuments;
 
 	return docs.map((doc) => {
-		let path = doc._raw.flattenedPath;
-		if (path.endsWith("_meta")) path = doc._raw.sourceFileDir;
+		const path = doc._raw.sourceFileDir;
 		return {
 			slug: path.split("/"),
 		};

@@ -33,11 +33,11 @@ export function LeafNode({
 	if (trees.length === 0) return;
 
 	return (
-		<>
+		<div className={styles.leafCategory}>
 			{trees.map((tree) => {
 				if (tree.category) {
 					return (
-						<div className={styles.leafCategory}>
+						<div className={styles.items}>
 							<Link href={"/" + tree.category._raw.sourceFileDir}>
 								<div
 									className={`${styles.link} ${
@@ -54,6 +54,6 @@ export function LeafNode({
 					);
 				}
 			})}
-		</>
+		</div>
 	);
 }

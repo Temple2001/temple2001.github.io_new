@@ -54,8 +54,6 @@
 }
 
 .contentStyle {
-	font-weight: 500;
-
 	div[data-rehype-pretty-code-fragment] {
 		padding: 1rem 0;
 
@@ -84,11 +82,11 @@
 		}
 
 		[data-highlighted-line] {
-			background-color: rgba(135, 206, 235, 0.2);
+			background-color: rgba(128, 255, 162, 0.2);
 		}
 
 		[data-highlighted-chars] {
-			background-color: rgba(255, 0, 0, 0.5);
+			background-color: rgba(255, 255, 255, 0.3);
 			border-radius: 0.2rem;
 		}
 	}

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function Page() {
 	const posts = allPosts;
 	const orderedPosts = posts.sort(
-		(a, b) => +new Date(a.createdAt) - +new Date(b.createdAt)
+		(a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
 	);
 
 	return (

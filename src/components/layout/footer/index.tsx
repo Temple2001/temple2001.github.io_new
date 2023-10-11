@@ -6,7 +6,6 @@ export default function Footer() {
 	return (
 		<div className={styles.footer}>
 			<div className={styles.content}>
-				{metadata.blogName}
 				<DarkModeButton />
 			</div>
 		</div>

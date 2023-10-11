@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useNavContext } from "@/lib/navContext";
 import { classNames } from "@/lib/classnames";
 import { usePathname } from "next/navigation";
+import { Nanum_Gothic } from "next/font/google";
+
+const nanumGothic = Nanum_Gothic({ weight: "800", subsets: ["latin"] });
 
 export default function Navigation() {
 	const categoryTree: CategoryTree = makeCategoryTree();
@@ -12,7 +15,7 @@ export default function Navigation() {
 	const [open, setOpen] = useNavContext();
 
 	return (
-		<div className={styles.navWrapper}>
+		<div className={`${styles.navWrapper} ${nanumGothic.className}`}>
 			<div
 				{...classNames(styles.navigation, open && styles.open)}
 				onClick={() => setOpen(false)}

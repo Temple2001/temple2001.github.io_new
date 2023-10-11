@@ -1,16 +1,49 @@
+.profile {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	max-width: 900px;
+	padding: 2rem 0 4rem 0;
+	margin: 0 auto;
+
+	.imageBox {
+		width: 25%;
+		.image {
+			max-width: 10rem;
+			aspect-ratio: 1/1;
+			border-radius: 50%;
+			background-image: url("https://avatars.githubusercontent.com/u/39640991?v=4");
+			background-size: contain;
+		}
+
+		.icons {
+			cursor: pointer;
+			fill: var(--color-text);
+			overflow: visible;
+		}
+	}
+
+	.about {
+		width: 70%;
+		.title {
+			font-size: 1.6rem;
+			padding-bottom: 0.5rem;
+		}
+
+		.description {
+			word-break: keep-all;
+		}
+	}
+}
+
+.border {
+	border-bottom: 2px solid var(--color-border);
+	margin-bottom: 1rem;
+	transition: border var(--style-darkmode-transition);
+}
+
 .category {
-	.title {
-		font-size: 3rem;
-		font-weight: 600;
-		padding-bottom: 0.5rem;
-	}
-
-	.description {
-		font-size: 1.1rem;
-		font-style: italic;
-		padding-bottom: 3rem;
-	}
-
 	.flexBox {
 		display: flex;
 		flex-direction: row;

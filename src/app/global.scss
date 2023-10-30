@@ -15,3 +15,16 @@ body {
 	transition: background-color var(--style-darkmode-transition),
 		color var(--style-darkmode-transition);
 }
+
+body::-webkit-scrollbar {
+	width: 0.8rem;
+}
+
+body::-webkit-scrollbar-thumb {
+	background-color: black;
+	border-radius: 1rem;
+}
+
+body::-webkit-scrollbar-track {
+	border-radius: 1rem;
+}

@@ -24,7 +24,9 @@ export default function Header() {
 						</div>
 					</Link>
 					<div className={styles.buttons}>
-						<DarkModeButton />
+						<div className={styles.dmButton}>
+							<DarkModeButton />
+						</div>
 						<div
 							{...classNames(styles.tabKey, open && styles.open)}
 							onClick={() => setOpen(!open)}

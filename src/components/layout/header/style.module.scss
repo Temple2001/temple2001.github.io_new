@@ -21,7 +21,7 @@
 
 	.leftBlock {
 		position: fixed;
-		width: 11.6rem;
+		width: 10.7rem;
 		height: inherit;
 		left: 0;
 		top: 0;
@@ -32,16 +32,23 @@
 
 	.text {
 		display: inline;
-		font-size: 1.8rem;
+		font-size: 1.6rem;
 		font-weight: 600;
 		color: white;
 		mix-blend-mode: difference;
+		white-space: nowrap;
 	}
 
 	.buttons {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
+
+		.dmButton {
+			@media screen and (max-width: 1024px) {
+				display: none;
+			}
+		}
 
 		.tabKey {
 			width: 2rem;
@@ -91,11 +98,5 @@
 				display: none;
 			}
 		}
-	}
-}
-
-@media screen and (min-width: 1025px) {
-	.tabKey {
-		display: none;
 	}
 }

@@ -40,23 +40,24 @@
 
 .p {
 	font-size: 1.1rem;
-	font-weight: 300;
+	line-height: 170%;
 	margin: 1.5rem 0;
 }
 
 .li {
+	font-size: 1.1rem;
 	padding-left: 1rem;
-	border-left: 2px solid var(--color-border);
+	padding-top: 0.5rem;
 }
 
 [id="목차"] + .border + .ul {
-	font-size: 1.4rem;
 	font-weight: 700;
 	color: var(--color-toc-text);
 
 	.li {
+		font-size: 1.4rem;
 		padding-left: 1rem;
-		padding-top: 0.5rem;
+		padding-top: 0.7rem;
 		border: none;
 	}
 
@@ -70,7 +71,7 @@
 }
 
 .strong {
-	font-weight: 600;
+	font-weight: 400;
 	color: var(--color-text);
 	background-color: var(--color-text-bold);
 	border-radius: 0.5rem;
@@ -78,4 +79,18 @@
 	margin: 0 0.4rem;
 	transition: color var(--style-darkmode-transition),
 		background-color var(--style-darkmode-transition);
+}
+
+.hr {
+	margin: 1.8rem 0;
+	border: none;
+	text-align: center;
+	height: auto;
+
+	&:before {
+		content: "\2022 \2022 \2022";
+		font-size: 2rem;
+		color: var(--color-border);
+		transition: color var(--style-darkmode-transition);
+	}
 }

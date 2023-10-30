@@ -8,7 +8,50 @@
 .content {
 	display: flex;
 	flex-direction: row;
-	justify-content: right;
+	justify-content: space-between;
 	align-items: center;
 	padding: 2rem 7.5%;
+
+	.text {
+		opacity: 0.5;
+
+		.title {
+			font-size: 1.5rem;
+			font-weight: 600;
+			padding-bottom: 0.5rem;
+		}
+
+		.description {
+			font-size: 0.8rem;
+			font-weight: 500;
+			line-height: 120%;
+			padding-bottom: 0.3rem;
+		}
+	}
+
+	.button {
+		display: flex;
+		flex-direction: row;
+
+		.githubIcon {
+			cursor: pointer;
+			margin: auto 0;
+
+			svg {
+				width: 2rem;
+				height: 2rem;
+
+				path {
+					fill: var(--color-text);
+					transition: fill var(--style-darkmode-transition);
+				}
+			}
+		}
+
+		@media screen and (min-width: 1025px) {
+			.dmButton {
+				display: none;
+			}
+		}
+	}
 }

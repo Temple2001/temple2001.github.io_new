@@ -64,4 +64,6 @@ export const mdxComponents: MDXComponents = {
 	strong: ({ children }) => (
 		<strong className={styles.strong}>{children}</strong>
 	),
+
+	hr: () => <hr className={styles.hr} />,
 };

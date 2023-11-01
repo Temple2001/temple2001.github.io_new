@@ -6,6 +6,7 @@ import PostBox from "@/components/layout/postbox";
 import { Container } from "@/components/layout/container";
 import ScrollEvent from "@/components/ScrollEvent";
 import HeaderWords from "@/components/layout/header-words";
+import { blogdata } from "@/lib/constants";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
@@ -73,4 +74,21 @@ export async function generateStaticParams() {
 			slug: path.split("/"),
 		};
 	});
+}
+
+export function generateMetadata({ params }: { params: { slug: string[] } }) {
+	const { slug } = params;
+	const target = allDocuments.find((docs) => {
+		return slug.join("/") === docs._raw.sourceFileDir;
+	});
+
+	if (!target) {
+		return {
+			title: blogdata.blogName,
+		};
+	} else {
+		return {
+			title: target.title + " - " + blogdata.blogName,
+		};
+	}
 }

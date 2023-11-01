@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import styles from "./style.module.scss";
-import { metadata } from "@/lib/constants";
+import { blogdata } from "@/lib/constants";
 import { useNavContext } from "@/lib/navContext";
 import { classNames } from "@/lib/classnames";
 import { Orbitron } from "next/font/google";
@@ -20,7 +20,7 @@ export default function Header() {
 					<div className={styles.leftBlock} />
 					<Link href={"/"}>
 						<div className={`${styles.text} ${orbitron.className}`}>
-							{metadata.blogName}
+							{blogdata.blogName}
 						</div>
 					</Link>
 					<div className={styles.buttons}>

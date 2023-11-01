@@ -3,9 +3,10 @@ import { Metadata } from "next";
 import styles from "./style.module.scss";
 import PostBox from "@/components/layout/postbox";
 import { Container } from "@/components/layout/container";
+import { blogdata } from "@/lib/constants";
 
 export const metadata: Metadata = {
-	title: "temple2001.github.io",
+	title: blogdata.blogName,
 };
 
 export default function Page() {

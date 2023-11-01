@@ -2,7 +2,7 @@ import DarkModeButton from "../dark-mode-button";
 import GithubMark from "@/../public/assets/github-mark.svg";
 import styles from "./style.module.scss";
 import Link from "next/link";
-import { metadata } from "@/lib/constants";
+import { blogdata } from "@/lib/constants";
 import { Orbitron } from "next/font/google";
 
 const orbitron = Orbitron({ subsets: ["latin"] });
@@ -13,7 +13,7 @@ export default function Footer() {
 			<div className={styles.content}>
 				<div className={styles.text}>
 					<div className={`${styles.title} ${orbitron.className}`}>
-						{metadata.blogName}
+						{blogdata.blogName}
 					</div>
 					<div className={`${styles.description}`}>
 						© 2023 DongYoung Kim. All rights reserved.
@@ -25,7 +25,7 @@ export default function Footer() {
 				</div>
 				<div className={styles.button}>
 					<div className={styles.githubIcon}>
-						<Link href={metadata.githubLink}>
+						<Link href={blogdata.githubLink}>
 							<GithubMark />
 						</Link>
 					</div>

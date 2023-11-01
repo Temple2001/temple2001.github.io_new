@@ -9,10 +9,10 @@ export default function ScrollEvent() {
 		const observer = new IntersectionObserver((entries) => {
 			entries.forEach((entry) => {
 				if (entry.intersectionRatio <= 0) {
-					(headerWords as HTMLElement).style.display = "block";
+					(headerWords as HTMLElement).style.opacity = "1";
 					console.log(headerWords);
 				} else {
-					(headerWords as HTMLElement).style.display = "none";
+					(headerWords as HTMLElement).style.opacity = "0";
 					console.log(headerWords);
 				}
 			});

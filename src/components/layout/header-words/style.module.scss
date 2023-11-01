@@ -1,11 +1,12 @@
 .headerWords {
 	position: fixed;
-	display: none;
+	opacity: 0;
 	top: 0;
 	width: 55%;
 	max-width: 768px;
 	height: 4rem;
 	z-index: 200;
+	transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 
 	@media screen and (max-width: 1024px) {
 		z-index: -1;
@@ -15,7 +16,13 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		background: radial-gradient(
+			75% 120% at bottom,
+			var(--color-header-highlight),
+			rgba(255, 255, 255, 0) 70%
+		);
 		height: 100%;
+		padding: 0 2rem;
 
 		.title {
 			font-size: 1.5rem;
@@ -28,7 +35,7 @@
 
 		.description {
 			font-size: 0.9rem;
-			font-weight: 300;
+			font-style: italic;
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;

@@ -1,4 +1,4 @@
-@use "./theme-colors.scss" as *;
+@use "./theme-values.scss" as *;
 
 html[data-theme="light"] {
 	--color-bg: #{$bg-color-light};
@@ -12,6 +12,7 @@ html[data-theme="light"] {
 	--color-shadow: #{$shadow-color-light};
 	--color-header-left: #{$header-left-color-light};
 	--color-header-right: #{$header-right-color-light};
+	--color-header-highlight: #{$header-highlight-color-light};
 	--color-navigation: #{$navigation-color-light};
 	--color-navigation-highlight: #{$navigation-highlight-color-light};
 	--style-darkmode-transition: #{$darkmode-transition};
@@ -29,6 +30,7 @@ html[data-theme="dark"] {
 	--color-shadow: #{$shadow-color-dark};
 	--color-header-left: #{$header-left-color-dark};
 	--color-header-right: #{$header-right-color-dark};
+	--color-header-highlight: #{$header-highlight-color-dark};
 	--color-navigation: #{$navigation-color-dark};
 	--color-navigation-highlight: #{$navigation-highlight-color-dark};
 	--style-darkmode-transition: #{$darkmode-transition};

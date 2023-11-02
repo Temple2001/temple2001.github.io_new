@@ -28,12 +28,18 @@
 			overflow: hidden;
 			text-overflow: ellipsis;
 			margin-bottom: 0.5rem;
+			@media screen and (max-width: 1024px) {
+				font-size: 1.5rem;
+			}
 		}
 
 		.description {
 			white-space: nowrap;
 			overflow: hidden;
 			text-overflow: ellipsis;
+			@media screen and (max-width: 1024px) {
+				font-size: 0.9rem;
+			}
 		}
 
 		.time {

@@ -6,28 +6,28 @@
 
 .heading1 {
 	font-size: 2.5rem;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		font-size: 2rem;
 	}
 }
 
 .heading2 {
 	font-size: 2rem;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		font-size: 1.7rem;
 	}
 }
 
 .heading3 {
 	font-size: 1.7rem;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		font-size: 1.5rem;
 	}
 }
 
 .heading4 {
 	font-size: 1.4rem;
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		font-size: 1.2rem;
 	}
 }
@@ -55,7 +55,7 @@
 	line-height: 170%;
 	margin: 1.5rem 0;
 
-	@media screen and (max-width: 1024px) {
+	@media screen and (max-width: 1280px) {
 		font-size: 1rem;
 	}
 }

@@ -1,5 +1,4 @@
 .post {
-	max-width: 956px;
 	margin: inherit;
 
 	.title {
@@ -88,7 +87,7 @@
 					border-radius: 0.2rem;
 				}
 
-				@media screen and (max-width: 1024px) {
+				@media screen and (max-width: 1280px) {
 					font-size: 0.9rem;
 				}
 			}

@@ -1,5 +1,5 @@
 .post {
-	max-width: 768px;
+	max-width: 956px;
 	margin: inherit;
 
 	.title {
@@ -61,33 +61,37 @@
 			border-radius: 0.5rem;
 			box-shadow: var(--color-shadow);
 			transition: box-shadow var(--style-darkmode-transition);
-			//background-color: var(--color-text-bold) !important;
-		}
-	}
 
-	code {
-		counter-reset: line;
-		overflow: auto;
+			code {
+				counter-reset: line;
+				overflow: auto;
+				padding-bottom: 1rem;
 
-		> [data-line]::before {
-			counter-increment: line;
-			content: counter(line);
+				> [data-line]::before {
+					counter-increment: line;
+					content: counter(line);
 
-			// index styling
-			display: inline-block;
-			width: 1rem;
-			margin-right: 1.5rem;
-			text-align: right;
-			color: gray;
-		}
+					// index styling
+					display: inline-block;
+					width: 1rem;
+					margin-right: 1.5rem;
+					text-align: right;
+					color: gray;
+				}
 
-		[data-highlighted-line] {
-			background-color: rgba(128, 255, 162, 0.2);
-		}
+				[data-highlighted-line] {
+					background-color: rgba(128, 255, 162, 0.2);
+				}
 
-		[data-highlighted-chars] {
-			background-color: rgba(255, 255, 255, 0.3);
-			border-radius: 0.2rem;
+				[data-highlighted-chars] {
+					background-color: rgba(255, 255, 255, 0.3);
+					border-radius: 0.2rem;
+				}
+
+				@media screen and (max-width: 1024px) {
+					font-size: 0.9rem;
+				}
+			}
 		}
 	}
 }

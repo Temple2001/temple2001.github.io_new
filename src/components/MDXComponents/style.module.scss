@@ -61,19 +61,26 @@
 }
 
 .li {
-	padding-left: 1rem;
-	padding-top: 0.5rem;
+	font-size: 1.1rem;
+	padding: 0.3rem 0 0.3rem 1rem;
+	list-style-type: "-";
+	margin-left: 2rem;
+
+	@media screen and (max-width: 1280px) {
+		font-size: 1rem;
+	}
 }
 
 [id="목차"] + .border + .ul {
+	margin-left: 2rem;
 	font-weight: 700;
 	color: var(--color-toc-text);
 
 	.li {
 		font-size: 1.4rem;
-		padding-left: 1rem;
-		padding-top: 0.7rem;
-		border: none;
+		padding: 1rem 0 0 0.5rem;
+		list-style-type: disc;
+		margin-left: 1.5rem;
 	}
 
 	a {

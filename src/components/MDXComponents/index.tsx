@@ -53,9 +53,16 @@ export const mdxComponents: MDXComponents = {
 
 	p: ({ children }) => <p className={styles.p}>{children}</p>,
 
-	img: (props) => <img {...props} className={styles.img} />,
+	img: (props) => (
+		<div className={styles.imageBox}>
+			<img {...props} className={styles.img} />
+			<p className={styles.description}>{props.alt}</p>
+		</div>
+	),
 
 	ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
+
+	ol: ({ children }) => <ol className={styles.ol}>{children}</ol>,
 
 	li: ({ children }) => <li className={styles.li}>{children}</li>,
 

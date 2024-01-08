@@ -71,4 +71,10 @@ export const mdxComponents: MDXComponents = {
 	),
 
 	hr: () => <hr className={styles.hr} />,
+
+	a: (props) => (
+		<a {...props} className={styles.a}>
+			{props.children}
+		</a>
+	),
 };

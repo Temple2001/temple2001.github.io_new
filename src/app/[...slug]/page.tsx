@@ -38,14 +38,11 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 			</Container>
 		);
 	} else if (target.type === "Category") {
-		const posts = allPosts.filter((post) => {
-			const dir = target._raw.sourceFileDir;
-			if (dir) {
-				return post._raw.sourceFileDir.startsWith(dir);
-			} else {
-				return false;
-			}
-		});
+		const posts = allPosts.filter(
+			(post) =>
+				post._raw.sourceFileDir.startsWith(target._raw.sourceFileDir) &&
+				post.blind === false
+		);
 		const orderedPosts = posts.sort(
 			(a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
 		);

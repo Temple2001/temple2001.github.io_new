@@ -7,10 +7,11 @@ import { blogdata } from "@/lib/constants";
 
 export const metadata: Metadata = {
 	title: blogdata.blogName,
+	description: blogdata.description,
 };
 
 export default function Page() {
-	const posts = allPosts;
+	const posts = allPosts.filter((post) => post.blind === false);
 	const orderedPosts = posts.sort(
 		(a, b) => +new Date(b.createdAt) - +new Date(a.createdAt)
 	);

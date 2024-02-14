@@ -1,23 +1,3 @@
-## 구조
-
-### 메인 페이지
-
-- 프로필 사진, 설명 같은거 넣고 아래에는 전체 글 목록 반환(정렬해서)
-
-### 각 카테고리 (/[category])
-
-- 카테고리 안에 있는 모든 글 목록 반환
-
-### 각 post (/[...category]/[post])
-
-- 글 내용 반환
-
-## api
-
-### 개요
-
--
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

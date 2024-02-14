@@ -41,6 +41,7 @@ createdAt: 2023-03-05
 
 
 따라서 아래와 같은 코드가 필요하다.
+
 - 디스코드 봇을 운영하는 코드
 - Youtube Data API를 이용하는 코드
 - DB에서 데이터를 읽고 쓰는 코드
@@ -55,17 +56,92 @@ API 서버는 Flask를 이용해서 만들 것이다.
 
 ## 프론트엔드
 
+페이지가 단 하나만 필요하기 때문에 순수 React + js로 구현할 것이다.
+
+그리고 [styled-components](https://styled-components.com/)를 이용해 별도의 css 파일 없이 컴포넌트 코드 안에서 스타일을 정의하는 방법을 사용할 것이다.
+
 # 코드 설명
 
-[GitHub 링크](https://github.com/Temple2001/arcade-manager)
+## 백엔드 코드
 
-* api_server.py에서 CORS 처리
+[Github 링크](https://github.com/Temple2001/arcade-manager/tree/main/backend_python)
 
+
+## 프론트엔드 코드
+
+[Github 링크](https://github.com/Temple2001/arcade-manager/tree/main/frontend_reactjs)
 
 
 # 후기
 
-* CORS 문제와 외부 접속 허용에 너무 많은 시간을 쏟아부었음
-* DB 해킹 사건...;;;
-* props -> props -> props 형식이 되버렸는데 다음엔 redux 이용하면 될듯
-* mongoDB로 직접 DB 구축하지 말고 firebase같은 거 쓰기
+## 어려웠던 점
+
+### CORS 문제
+
+페이지에서 python으로 만든 API server에 요청을 보내고 결과를 받을 때 `"~ has been blocked by CORS policy: ~"`라는 에러가 발생해 개발이 지체되었던 적이 있었다.
+
+CORS 에러에 대해 간단히 설명하자면 **다른 출처**의 자원을 요청하는 상황을 CORS(Cross Origin Resource Sharing)라고 하는데, 대부분의 기본적인 환경에서는 이런 CORS를 차단한다. 이럴 때 위와 같은 CORS 에러가 발생하게 된다.
+
+**다른 출처**는 다음의 3가지 조건이 하나라도 다른 것을 말한다.
+
+- 프로토콜 (ex : http or https)
+- 호스트 (ex : naver.com or google.com)
+- 포트번호 (ex : :80 or :443)
+
+---
+
+따라서 문제를 해결하기 위해서는
+1. 서버에서 `Access-Control-Allow-Origin` 헤더를 세팅하고 브라우저에 응답을 보내 예외를 설정하거나
+2. 프론트 단에서 프록시 서버를 이용해 동일한 출처에서 요청을 보내는 것처럼 만드는 방법이 있다.
+
+후자는 다른 서비스를 끌어다 써와야 하므로 많이 번거롭기 때문에 서버에서 `Access-Control-Allow-Origin` 헤더를 설정하는 방법으로 결정했다.
+
+아래는 Flask의 `Access-Control-Allow-Origin` 헤더 적용 코드이다.
+
+```python
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app, resources={r'*':{'origins': '*' }})     # '*'을 사용해 예외 없이 모든 경우에서 호출 허용
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=1219)
+```
+
+사실 위와 같이 예외 없이 모든 경우에서 호출을 허용하게 되면 **심각한 보안 문제**를 발생시킬 수 있으므로 여러 사람들에게 공개된 서비스에서는 사용하지 말아야 한다.
+
+### DB 해킹 사건
+
+테스트 중에 MongoDB가 해킹을 당하는 사고가 발생하였다...
+
+당시 나는 MongoDB가 위치한 서버의 방화벽을 모든 IP에 대해 개방한 상태였고, MongoDB는 별도의 설정을 해놓지 않는다면 접근하는 모든 이들이 DB를 만질 수 있도록 열려있게 된다.
+
+```yaml
+# 'mongod.conf' 구성 파일에서 security 부분을 아래와 같이 설정해야 한다.
+security:
+  authorization: enabled
+```
+
+나는 애석하게도 MongoDB에 별도의 설정을 해두지 않았고, 따라서 내 서버의 IP를 안다면 언제든지 MongoDB에 접근할 수 있게 되는 것이다.
+그리고 테스트를 한지 이틀만에 내 DB는 공격을 받게 된다. (바본가)
+
+다행히 테스트 중인 DB 안에 민감한 정보는 없었고 빠르게 대처하여 후속 피해는 없었지만 인생 처음으로 당한 해킹이다 보니 충격이 어마어마했다...
+
+보안에 관한 문제는 시간이 걸려도 신중히 접근해야 한다는 교훈을 깨닫게 된 것 같다.
+
+## 개선하고 싶은 점
+
+### DB 관리
+
+이번 프로젝트에서는 DB를 한번 직접 사용해보고 싶어서 MongoDB를 이용해 개발을 진행했는데, 앞서 말했던 DB 해킹 사건도 그렇고 DB를 구성하고 관리하는데에 드는 시간과 비용이 안에 담긴 데이터의 가치보다 더 크다고 느꼈다.
+
+물론 MongoDB도 NoSQl DB로 기본 SQL DB보다 훨씬 가볍고 간단한 DB에 속하지만, 데이터 컬럼 개수가 5개밖에 없는 이 프로젝트의 환경에서는 닭 잡는 데에 소 잡는 칼을 쓰는 격이라고 생각했다.
+
+최근에 찾은 DB 서비스 중에 [Firebase](https://firebase.google.com/?hl=ko)라는 것을 찾았는데,
+
+1. 서버리스 서비스라 서버를 따로 구하지 않아도 된다
+2. 자체적으로 백엔드 기능을 가지고 있어 백엔드 구현이 필요가 없다(적어도 이 프로젝트에서는)
+3. 한글 문서가 있다 (매우 중요)
+
+같은 다양한 장점들이 있어 만약 차후에 소규모 데이터를 다루는 프로젝트를 진행한다면 적극적으로 사용해 볼 의향이 생겼다.

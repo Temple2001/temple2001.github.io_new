@@ -68,6 +68,158 @@ API 서버는 Flask를 이용해서 만들 것이다.
 
 [Github 링크](https://github.com/Temple2001/arcade-manager/tree/main/backend_python)
 
+### api_server.py
+
+[GitHub 링크](https://github.com/Temple2001/arcade-manager/blob/main/backend_python/api_server.py)
+
+```python
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+from db_api import MongoDB_API
+
+app = Flask(__name__)
+CORS(app, resources={r'*':{'origins': '*' }})
+#app.debug = True
+app.config['JSON_AS_ASCII'] = False
+db_api = MongoDB_API()
+
+@app.route('/log-data', methods=['GET', 'POST'])
+def main_page():
+    if request.method == 'GET':
+        res = list(db_api.find_log())
+        for data in res:
+            data['log_time'] = str(data['log_time']).split('.', 2)[0]
+        return jsonify(res)
+
+    if request.method == 'POST':
+        user_name = request.args.get('username')
+        v_id = request.args.get('vid')
+        progress_time = request.args.get('time')
+        arcade_type = request.args.get('type')
+
+        db_api.add_log(user_name, v_id, progress_time, arcade_type)
+        return jsonify({'msg': 'Insert Completed'})
+```
+
+GET 요청을 받으면 DB에서 받은 데이터를 반환하고 POST 요청을 받으면 요청에 포함된 데이터로 DB에 데이터를 새로 저장하는 API의 코드이다.
+
+### db_api.py
+
+[GitHub 링크](https://github.com/Temple2001/arcade-manager/blob/main/backend_python/db_api.py)
+
+```python
+from pymongo import MongoClient
+import datetime
+import traceback
+from dotenv import load_dotenv
+import os
+
+class MongoDB_API:
+    def __init__(self):
+        load_dotenv(verbose=True)
+        self.MONGO_PWD = os.getenv('MONGO_PWD')
+        self.client = MongoClient(f'mongodb://temple:{self.MONGO_PWD}@localhost:27017/ArcadeData')
+        self.log_db = self.client['ArcadeData']['log']
+
+    def add_log(self, user_name, v_id, progress_time, arcade_type):
+        try:
+            content = {
+                'log_time': datetime.datetime.utcnow(),
+                'user_name': user_name,
+                'v_id': v_id,
+                'check_time': progress_time,
+                'arcade_type': arcade_type,
+            }
+            post_id = self.log_db.insert_one(content).inserted_id
+            print(f'[OK] 새 데이터가 등록되었습니다. post_id : "{post_id}"')
+            return None
+        except:
+            print(f'[Error] DB 데이터 추가 에러\n{traceback.format_exc()}')
+            return '[Failed] DB 데이터 추가 실패'
+    
+    def find_log(self):
+        return self.log_db.find({}, {'_id': False}).sort('log_time')
+```
+
+DB에 데이터(log)를 추가하거나 모든 데이터를 반환하는 코드이다.
+
+### youtube_api.py
+
+[GitHub 링크](https://github.com/Temple2001/arcade-manager/blob/main/backend_python/youtube_api.py)
+
+```python
+import requests
+import json
+import os
+from dotenv import load_dotenv
+from datetime import datetime, timedelta
+from urllib.parse import urlparse, parse_qs
+import traceback
+
+class YoutubeAPI:
+
+    def __init__(self):
+        load_dotenv(verbose=True)
+        self.API_KEY = os.getenv('API_KEY')
+    
+    def find_video(self, keyword):
+        params = {
+            'q': keyword,
+            'part': 'snippet',
+            'key': self.API_KEY,
+            'maxResults': 3,
+            'type': 'video',
+            'order': 'date',
+        }
+
+        response = requests.get('https://www.googleapis.com/youtube/v3/search', params=params)
+        res_json = response.json()
+        if response.status_code != 200:
+            print('[Error] find_video 에러, 생방송 video를 찾지 못함.')
+            print(json.dumps(res_json, indent=2))
+            return None, '[Failed] 해당 생방송 video를 찾지 못했습니다.'
+        
+        search_list = res_json['items']
+        for video in search_list:
+            if video['snippet']['liveBroadcastContent'] == 'live':
+                return video['id']['videoId'], None
+        return None, '[Failed] 해당 생방송 video를 찾지 못했습니다.'
+            
+    def url_parse(self, url):
+        try:
+            parsed_url = urlparse(url)
+            v_id = parse_qs(parsed_url.query)['v'][0]
+            return v_id, None
+        except:
+            print(f'[Error] urlparse 에러\n{traceback.format_exc()}')
+            return None, '[Failed] 올바른 URL을 입력하세요.'
+
+    def time_check(self, v_id):
+        try:
+            params = {
+                'part': 'snippet',
+                'id': v_id,
+                'key': self.API_KEY,
+            }
+
+            response = requests.get('https://www.googleapis.com/youtube/v3/videos', params=params)
+            res_json = response.json()
+
+            start_time_utc = res_json['items'][0]['snippet']['publishedAt']
+
+            start_time_utc = datetime.strptime(start_time_utc, '%Y-%m-%dT%H:%M:%SZ')
+            progress_time = str(datetime.now() - start_time_utc).split('.', 2)[0]
+            return progress_time, None
+        except:
+            print(f'[Error] API 호출 에러\n{traceback.format_exc()}')
+            return None, '[Failed] 유효하지 않은 동영상입니다.'
+```
+
+Youtube 공식 API를 이용해 키워드로 생방송 영상을 검색해 비디오 ID를 찾고 그 ID를 가진 생방송 영상의 진행률(몇시간 몇분 몇초)을 찾는 코드이다.
+
+### bot.py
+
+[GitHub 링크](https://github.com/Temple2001/arcade-manager/blob/main/backend_python/bot.py)
 
 ## 프론트엔드 코드
 

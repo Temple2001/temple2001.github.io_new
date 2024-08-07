@@ -2,7 +2,6 @@
 title: 멋사 -  7주차 DRF API 세션
 description: Django로 RESTful API를 만들기 위해 DRF에 대해 알아보았습니다.
 createdAt: 2024-05-01
-blind: true
 ---
 
 # 목차
@@ -15,14 +14,14 @@ Django 안에서 RESTful API 서버를 쉽게 만들 수 있도록 도와주는 
 
 즉, DRF를 통해 Restful한 아키텍쳐를 HTTP method와 함께 사용하여 웹, 앱 데스크탑, 어플리케이션까지 범용 가능한 하나의 API를 제공할 수 있다.
 
-DRF의 특징은 **Serializer**를 사용하고, FBV(Function Based View)가 아닌 **CBV(Class Based View)**로 구현한다는 것이다.
+DRF의 특징은 **Serializer**를 사용하고, FBV(Function Based View)가 아닌 **CBV(Class Based View)** 로 구현한다는 것이다.
 
 ### Serializer
 
 Client와 Server API 간의 데이터 양식을 맞춰주는 변환기이다.
 
 ```python
-def **post_list**(request):
+def post_list(request):
 			 
 			  ... 
 			  
@@ -59,7 +58,7 @@ Django만 사용하는 풀스택 개발 환경에서는 별 상관이 없지만 
 
 직렬화가 데이터를 json 형태로 변환하는 과정이라면, **역직렬화**는 반대로 json 형태를 데이터로 변환하는 과정이다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ebe0ce4d-3d79-41f4-9c43-c22ad1b6eafa/7b7851c2-df8c-46c4-bf7d-f36704863135/Untitled.png)
+![](Serializer.png)
 
 ### CBV (Class Based View)
 
@@ -67,7 +66,7 @@ Django만 사용하는 풀스택 개발 환경에서는 별 상관이 없지만 
 
 CBV는 클래스로 view를 작성하여 클래스 내부에서 요청에 따라 함수를 재정의 하기 때문에 **일부 요청에만 데코레이터를 사용**할 수 있는 장점이 있어 DRF에서 많이 사용된다. 코드 확장과 재사용도 용이하다.
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/ebe0ce4d-3d79-41f4-9c43-c22ad1b6eafa/37c3ddee-d86c-463c-9d4e-40f33b999208/Untitled.png)
+![](CBV.png)
 
 CBV는 다음과 같은 방법들로 구현이 가능하다.
 

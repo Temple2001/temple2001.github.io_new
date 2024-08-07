@@ -15,14 +15,13 @@ body {
 }
 
 body::-webkit-scrollbar {
-	width: 0.7rem;
+	width: 0.9rem;
 }
 
 body::-webkit-scrollbar-thumb {
-	background-color: black;
+	background-color: var(--color-scrollbar);
 	border-radius: 1rem;
 }
 
 body::-webkit-scrollbar-track {
-	border-radius: 1rem;
 }

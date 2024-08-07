@@ -2,7 +2,6 @@
 title: 멋사 -  4주차 DB 세션
 description: 백엔드의 오아시스라고 불리는 데이터베이스에 대해 알아보았습니다.
 createdAt: 2024-03-27
-blind: true
 ---
 
 # 목차
@@ -17,15 +16,9 @@ blind: true
 
 | 구분 | 내용 | 저장유형 | 데이터 구조 |
 | --- | --- | --- | --- |
-| 정형데이터
-(Structured Data) | 미리 정의된 형식이 있는 데이터 | RDBMS
- | Entity-Relationship |
-| 반정형데이터
-(Semi-Structured Data) | 데이터의 구조 정보를 
-데이터와 함께 제공하는 파일 형식의 데이터
-→ 데이터의 형식과 구조가 변경될 수 있는 데이터 | NoSQL | Key-Value 등 |
-| 비정형데이터
-(Unstructured Data) | 미리 정의된 형식이 없는 데이터 | 비구조 | Non Structure |
+| 정형데이터 (Structured Data) | 미리 정의된 형식이 있는 데이터 | RDBMS | Entity-Relationship |
+| 반정형데이터 (Semi-Structured Data) | 데이터의 구조 정보를 데이터와 함께 제공하는 파일 형식의 데이터 → 데이터의 형식과 구조가 변경될 수 있는 데이터 | NoSQL | Key-Value 등 |
+| 비정형데이터 (Unstructured Data) | 미리 정의된 형식이 없는 데이터 | 비구조 | Non Structure |
 
 ## 데이터베이스(DB)
 
@@ -46,28 +39,30 @@ blind: true
 - 각 행( `Row` )의 데이터들을 `Record` 또는 `Tuple` 이라고 부른다.
 - 각 열( `Column` )의 데이터들을 `Field` 라고 하며, Column 이름의 집합을 `Attribute` 라고 한다.
 
-**Primay Key(고유 키)**는 튜플을 식별할 수 있게 만드는 가장 작은 subset중에서 선택한 것이고,
+---
 
-**Foreign Key(외래 키)**는 2개의 엔티티에서 서로 **참조 관계일 때 사용하는 key이다.**
+**Primay Key(고유 키)** 는 튜플을 식별할 수 있게 만드는 가장 작은 subset중에서 선택한 것이고,
+
+**Foreign Key(외래 키)** 는 2개의 엔티티에서 서로 **참조 관계일 때 사용하는 key이다.**
 
 Foreign Key로 맺는 참조 관계에는 3종류가 있다.
 
 - 일대일(1:1) 관계
     - 어느 엔티티 쪽에서 상대 엔티티와 **반드시 단 하나의 관계**를 가지는 것을 의미한다.
     
-    !https://velog.velcdn.com/images/gillog/post/296d4f71-8eba-4353-bf3a-4d9b342695df/11.PNG
+    ![](https://velog.velcdn.com/images/gillog/post/296d4f71-8eba-4353-bf3a-4d9b342695df/11.PNG)
     
 
 - 일대다(1:N) 관계
     - **한 쪽** 엔티티가 관계를 맺은 엔티티 쪽의 **여러 객체**를 가질 수 있는 것을 의미한다.
     
-    !https://velog.velcdn.com/images/gillog/post/8977abf9-f56e-46b0-8764-cf6446af1daf/22.PNG
+    ![](https://velog.velcdn.com/images/gillog/post/8977abf9-f56e-46b0-8764-cf6446af1daf/22.PNG)
     
 
 - 다대다(N:M) 관계
-    - 관계를 가진 **양쪽 엔티티 모두**에서 `1:N 관계`를 가지는 것을 의미한다.
+    - 관계를 가진 **양쪽 엔티티 모두**에서 1:N 관계를 가지는 것을 의미한다.
     
-    !https://velog.velcdn.com/images/gillog/post/33a5d121-a58d-4791-a2f7-d1243e954d21/33.PNG
+    ![](https://velog.velcdn.com/images/gillog/post/33a5d121-a58d-4791-a2f7-d1243e954d21/33.PNG)
     
 
 <aside>
@@ -84,7 +79,7 @@ Foreign Key로 맺는 참조 관계에는 3종류가 있다.
 
 그러나 새로운 테이블을 만들어 다대다 관계를 관리하면 양쪽 테이블에서 중복 데이터가 나오지 않게 만들 수 있어 RDB의 장점을 제대로 활용할 수 있다.
 
-!https://velog.velcdn.com/images/gmlstjq123/post/cc643b27-cd0e-4fa9-91a1-d713985cd0be/image.png
+![](https://velog.velcdn.com/images/gmlstjq123/post/cc643b27-cd0e-4fa9-91a1-d713985cd0be/image.png)
 
 </aside>
 
@@ -103,7 +98,7 @@ DBMS(Database Management System)이란 **DB를 관리하고 운영하는 소프�
 
 **엔티티(객체)들의 관계를 다이어그램 형식으로 표현한 것**으로, 서비스를 생각하면서 설계하고 이를 데이터베이스의 구조를 한눈에 파악할 수 있게 구조화 및 시각화한 자료이다.
 
-!https://images.edrawsoft.com/articles/er-diagram-example/one-to-many-erd.png
+![](https://images.edrawsoft.com/articles/er-diagram-example/one-to-many-erd.png)
 
 - `Entity` : 관리하고자 하는 정보의 실체(객체,개념 등)로, RDB에선 table과 유사한 의미를 가진다.
 - `Attribute` : Entity의 속성들로, Entity를 구성하는 요소를 말한다.
@@ -137,33 +132,31 @@ Django의 MTV 패턴의 M을 담당하는 파일이며, 테이블을 정의하�
 Django의 필드 데이터타입은 다음과 같다.
 
 | 필드타입 | 필수 옵션 | 설명 |
-| --- | --- | --- |
-| AutoField | - | auto increment 되는 IntegerField입니다. 
-django에선 따로 명시하지 않을 시, id필드를 자동으로 추가해준다. |
+| --- | :---: | --- |
+| AutoField | - | auto increment 되는 IntegerField이다. django에선 따로 명시하지 않을 시, id필드를 자동으로 추가해준다. |
 | BooleanField | - | 'True/False'값을 가지는 필드 |
 | CharField | max_length | 문자열 데이터를 저장하는 필드. 최대 글자수를 반드시 지정해주어야 한다. |
 | DateField | - | datetime.date 인스턴스인 날짜 데이터를 저장하는 필드 |
 | DateTimeField | - | datetime.datetime 인스턴스인 날짜와 시간데이터를 저장하는 필드. 2개의 TextInput, 달력 위젯, 오늘 날짜 입력 기능을 기본 제공한다. |
 | FloatField | - | Python의 float과 같은 실수 데이터를 저장하는 필드 |
-| IntegerField | - | Python의 integer와 같은 정수 데이터를 저장하는 필드.
-[-2147483648,2147483648] |
+| IntegerField | - | Python의 integer와 같은 정수 데이터를 저장하는 필드. |
 | TextField | - | 글자 수 제한이 없는 문자열 데이터를 저장하는 필드. max_length 값을 지정하면 폼에서는 제한이 되만, 데이터베이스에는 영향을 주지 않음. |
-| ImageField |  | 이미지 파일을 저장하는 필드이며, ‘media’ 폴더에서 따로 관리됨. |
+| ImageField | - | 이미지 파일을 저장하는 필드이며, ‘media’ 폴더에서 따로 관리됨. |
 
 Django에서 model을 설계하고 database에 적용시키기 위해서는 `migrate` 작업이 필요하다.
 
 | 명령어 | 내용 |
 | --- | --- |
-| python http://manage.py makemigrations	 | 앱 내의 migration 폴더를 만들어서 models.py의 변경사항 저장
-*git add 명령어와 유사하다고 생각하면 좋을 것 같습니다!
-**모델과 관련하여 수정이 발생한다면 해당 명령어를 먼저 진행해야 제대로 migrate 됩니다! |
-| python http://manage.py migrate | Migration 폴더를 실행시켜 데이터베이스에 적용. |
+| python manage.py makemigrations | 앱 내의 migration 폴더를 만들어서 models.py의 변경사항 저장, *git add 명령어와 유사, 모델과 관련하여 수정이 발생한다면 해당 명령어를 먼저 진행해야 제대로 migrate됨. |
+| python manage.py migrate | Migration 폴더를 실행시켜 데이터베이스에 적용. |
 
 ### ORM(Object-Relation Mapping)
 
 ORM은 **객체(Object)**의 **관계(Relation)**를 **연결(Mapping)** 해주는 것을 의미한다. ORM을 이용하면 데이터베이스의 데이터를 객체 지향적인 방법을 사용하여 쉽게 조작할 수 있다.
 
 Django의 ORM은 자동으로 내장되어, python과 RDB의 SQL 사이의 통역사 역할을 한다.
+
+---
 
 <aside>
 💡 **ORM으로 DB를 완벽히 표현할 수 있는가?**
@@ -225,6 +218,8 @@ class Post(BaseModel):
 먼저 블로그의 글(Post) 테이블을 만든다.
 이 코드에서는 `BaseModel` 추상 클래스로 정의하여 여러 모델이 공유하는 Attribute를 만들었다. 특정 클래스가 `BaseModel` 을 상속하면 해당 Attribute를 사용할 수 있다.
 
+---
+
 <aside>
 💡 **class Meta란?**
 
@@ -244,7 +239,7 @@ Django는 User 테이블을 기본적으로 제공하며, 사용할 수 있는 U
 1. User(기본 유저 모델)
     - 추천하지 않음
     - 장고에서 유저 모델을 한번 정의하면 다른 모델로 바꾸는 것이 어렵기 때문.
-2. AbstractUser 
+2. AbstractUser
     - 있는 기능을 정의만 해서 사용하면 됨.
     - 그냥 있는 것을 가져다 쓰고 싶다면 AbstractUser모델을 사용
 3. **AbstractBaseUser**
@@ -330,7 +325,7 @@ admin.site.register(User)
 
 # 과제 관련 회고
 
-### migration 에러
+## migration 에러
 
 단순히 새로운 모델을 추가하는 과정 이후에 migrate 과정을 수행하면 별다른 문제가 발생하지 않지만, 기존 모델의 attribute를 수정하는 등의 작업 이후에 migrate 과정을 수행하면 다음과 같은 에러가 나왔다.
 
@@ -344,15 +339,15 @@ raise IntegrityError( django.db.utils.IntegrityError: The row in table 'posts_po
 
 어찌보면 당연한 이야기인게, 별다른 데이터 가공 과정이 없었으므로 Django는 단순 문자열로 써져 있던 데이터를 Foreign Key로 읽으려고 하니 에러가 발생할 수 밖에 없었을 것이다. 이런 문제를 해결하려면 migration 전에 **기존 모델의 데이터를 새로운 모델의 형태에 맞추어 수정**하거나, 이전 데이터를 **전부 날려버리는** 방법이 필요할 것이다.
 
-### 모델 이름 복수형 전환
+## 모델 이름 복수형 전환
 
 모델을 생성하고 관리자 페이지에서 확인했을 때 눈에 띄는 점이 하나 있었다. 모델 이름이 약간 변화한 것이다. 나는 `Post` 와 `Comment` 라는 이름으로 클래스를 생성하여 모델을 만들었는데, 관리자 페이지에서는 각각 **Posts**와 **Comments** 라는 이름으로 확인할 수 있었다.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/ebe0ce4d-3d79-41f4-9c43-c22ad1b6eafa/08f238a9-ba9c-41a2-b26b-e2b047e4543e/06286a46-c208-4eb0-bc97-255b194fd4ed.png)
+![](https://prod-files-secure.s3.us-west-2.amazonaws.com/ebe0ce4d-3d79-41f4-9c43-c22ad1b6eafa/08f238a9-ba9c-41a2-b26b-e2b047e4543e/06286a46-c208-4eb0-bc97-255b194fd4ed.png)
 
 확인해 보니 Django는 별다른 설정을 주지 않는다면 모델 이름을 복수형(plural)으로 바꿔준다고 한다. 위에서 언급한 `Meta` 클래스 안에 `verbose_name_plural` 옵션을 따로 설정하지 않으면 `verbose_name` (이것도 설정하지 않으면 class 이름을 그대로 따라간다) 뒤에 s를 붙인다.
 
-### models.ForeignKey 메서드
+## models.ForeignKey 메서드
 
 이번 과제로 세션에서 다루지 않은 `ForeignKey` 메서드로 외래키를 정의했는데, 시행착오를 겪었던 부분들이 몇가지 있었다.
 

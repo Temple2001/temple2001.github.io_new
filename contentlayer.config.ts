@@ -3,6 +3,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 import remarkToc from "remark-toc";
 import remarkBreaks from "remark-breaks";
 import remarkUnwrapImages from "remark-unwrap-images";
+import remarkGfm from "remark-gfm";
 
 export const Post = defineDocumentType(() => ({
 	name: "Post",
@@ -66,6 +67,7 @@ const contentSource = makeSource({
 			remarkBreaks,
 			[remarkToc, { heading: "목차" }],
 			remarkUnwrapImages,
+			remarkGfm,
 		],
 		rehypePlugins: [[rehypePrettyCode, rehypeOptions]],
 	},

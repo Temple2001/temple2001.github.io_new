@@ -25,3 +25,12 @@ body::-webkit-scrollbar-thumb {
 
 body::-webkit-scrollbar-track {
 }
+
+code::-webkit-scrollbar {
+	height: 0.5rem;
+}
+
+code::-webkit-scrollbar-thumb {
+	background-color: var(--color-scrollbar);
+	border-radius: 1rem;
+}

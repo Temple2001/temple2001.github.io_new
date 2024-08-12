@@ -65,14 +65,12 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 export async function generateStaticParams() {
 	const docs = allDocuments;
 
-	return docs
-		.filter((doc) => !/\.(png|jpg|jpeg|gif)$/.test(doc._raw.sourceFileName))
-		.map((doc) => {
-			const path = doc._raw.sourceFileDir;
-			return {
-				slug: path.split("/"),
-			};
-		});
+	return docs.map((doc) => {
+		const path = doc._raw.sourceFileDir;
+		return {
+			slug: path.split("/"),
+		};
+	});
 }
 
 export function generateMetadata({ params }: { params: { slug: string[] } }) {

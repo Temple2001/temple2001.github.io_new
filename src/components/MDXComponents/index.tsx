@@ -2,6 +2,7 @@ import { MDXComponents } from "mdx/types";
 import styles from "./style.module.scss";
 import { slug } from "github-slugger";
 import InfoSVG from "../../../public/assets/information.svg";
+import Image from "next/image";
 
 export const mdxComponents: MDXComponents = {
 	h1: ({ children }) => (
@@ -56,7 +57,15 @@ export const mdxComponents: MDXComponents = {
 
 	img: (props) => (
 		<div className={styles.imageBox}>
-			<img {...props} className={styles.img} />
+			{/* <img {...props} className={styles.img} /> */}
+			<Image
+				src={props.src || "/default-image.jpg"}
+				alt="Image"
+				width={1000}
+				height={1000}
+				loading="lazy"
+				className={styles.img}
+			/>
 			<p className={styles.description}>{props.alt}</p>
 		</div>
 	),

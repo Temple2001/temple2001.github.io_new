@@ -28,14 +28,15 @@ export const Post = defineDocumentType(() => ({
 			default: false,
 		},
 	},
-	/*
 	computedFields: {
-		publicPath: {
+		previewImage: {
 			type: "string",
-			resolve: (post) => "/" + post._raw.flattenedPath,
+			resolve: (post) => {
+				const match = post.body.raw.match(/!\[.*?\]\((.*?)\)/);
+				return match ? match[1] : "";
+			},
 		},
 	},
-	*/
 }));
 
 export const Category = defineDocumentType(() => ({

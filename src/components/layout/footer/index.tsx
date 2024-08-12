@@ -16,7 +16,7 @@ export default function Footer() {
 						{blogdata.blogName}
 					</div>
 					<div className={`${styles.description}`}>
-						© 2023 DongYoung Kim. All rights reserved.
+						© 2024 DongYoung Kim. All rights reserved.
 					</div>
 					<div className={`${styles.description}`}>
 						Thank you for visiting my blog. Your interest gives me a great

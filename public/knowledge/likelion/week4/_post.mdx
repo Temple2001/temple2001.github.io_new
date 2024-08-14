@@ -343,7 +343,7 @@ raise IntegrityError( django.db.utils.IntegrityError: The row in table 'posts_po
 
 모델을 생성하고 관리자 페이지에서 확인했을 때 눈에 띄는 점이 하나 있었다. 모델 이름이 약간 변화한 것이다. 나는 `Post` 와 `Comment` 라는 이름으로 클래스를 생성하여 모델을 만들었는데, 관리자 페이지에서는 각각 **Posts**와 **Comments** 라는 이름으로 확인할 수 있었다.
 
-![](https://prod-files-secure.s3.us-west-2.amazonaws.com/ebe0ce4d-3d79-41f4-9c43-c22ad1b6eafa/08f238a9-ba9c-41a2-b26b-e2b047e4543e/06286a46-c208-4eb0-bc97-255b194fd4ed.png)
+![](db_problem.png)
 
 확인해 보니 Django는 별다른 설정을 주지 않는다면 모델 이름을 복수형(plural)으로 바꿔준다고 한다. 위에서 언급한 `Meta` 클래스 안에 `verbose_name_plural` 옵션을 따로 설정하지 않으면 `verbose_name` (이것도 설정하지 않으면 class 이름을 그대로 따라간다) 뒤에 s를 붙인다.
 

@@ -1,13 +1,11 @@
 import Link from "next/link";
 import styles from "./style.module.scss";
 import { Post } from "@/contentlayer/generated";
+import { isWebLink } from "@/lib/api";
 
 export default function PostBox({ post }: { post: Post }) {
 	const convertLink = (post: Post) => {
-		if (
-			post.previewImage.startsWith("http://") ||
-			post.previewImage.startsWith("https://")
-		) {
+		if (isWebLink(post.previewImage)) {
 			return post.previewImage;
 		} else {
 			return `/${post._raw.sourceFileDir}/${post.previewImage}`;

@@ -32,7 +32,7 @@ export default async function ({ params }: { params: { slug: string[] } }) {
 					<div className={styles.description}>{target.description}</div>
 					<div className={styles.border} id="headLine" />
 					<div className={styles.contentStyle}>
-						<MDXContent components={mdxComponents} />
+						<MDXContent components={mdxComponents(target)} />
 					</div>
 				</div>
 			</Container>

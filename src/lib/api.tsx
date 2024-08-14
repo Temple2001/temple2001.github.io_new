@@ -25,3 +25,11 @@ export function makeCategoryTree(path?: string) {
 
 	return tree;
 }
+
+export function isWebLink(src: string) {
+	if (src.startsWith("http://") || src.startsWith("https://")) {
+		return true;
+	} else {
+		return false;
+	}
+}

@@ -3,8 +3,10 @@ import styles from "./style.module.scss";
 import { slug } from "github-slugger";
 import InfoSVG from "../../../public/assets/information.svg";
 import Image from "next/image";
+import { Post } from "@/contentlayer/generated";
+import { isWebLink } from "@/lib/api";
 
-export const mdxComponents: MDXComponents = {
+export const mdxComponents = (post: Post): MDXComponents => ({
 	h1: ({ children }) => (
 		<>
 			<h1
@@ -55,20 +57,30 @@ export const mdxComponents: MDXComponents = {
 
 	p: ({ children }) => <p className={styles.p}>{children}</p>,
 
-	img: (props) => (
-		<div className={styles.imageBox}>
-			{/* <img {...props} className={styles.img} /> */}
-			<Image
-				src={props.src || "/assets/default-image.jpg"}
-				alt={props.src || ""}
-				width={1000}
-				height={1000}
-				loading="lazy"
-				className={styles.img}
-			/>
-			<p className={styles.description}>{props.alt}</p>
-		</div>
-	),
+	img: (props) => {
+		let imgSrc: string;
+		if (!props.src) imgSrc = "";
+		else {
+			if (isWebLink(props.src)) {
+				imgSrc = props.src;
+			} else {
+				imgSrc = `/${post._raw.sourceFileDir}/${props.src}`;
+			}
+		}
+		return (
+			<div className={styles.imageBox}>
+				<Image
+					src={imgSrc}
+					alt={imgSrc}
+					width={1000}
+					height={1000}
+					loading="lazy"
+					className={styles.img}
+				/>
+				<p className={styles.description}>{props.alt}</p>
+			</div>
+		);
+	},
 
 	ul: ({ children }) => <ul className={styles.ul}>{children}</ul>,
 
@@ -113,4 +125,4 @@ export const mdxComponents: MDXComponents = {
 			<table className={styles.table}>{children}</table>
 		</div>
 	),
-};
+});

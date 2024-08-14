@@ -59,7 +59,7 @@ export const mdxComponents: MDXComponents = {
 		<div className={styles.imageBox}>
 			{/* <img {...props} className={styles.img} /> */}
 			<Image
-				src={props.src || "/default-image.jpg"}
+				src={`./${props.src}` || "/default-image.jpg"}
 				alt="Image"
 				width={1000}
 				height={1000}

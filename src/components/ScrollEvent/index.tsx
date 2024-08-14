@@ -10,10 +10,8 @@ export default function ScrollEvent() {
 			entries.forEach((entry) => {
 				if (entry.intersectionRatio <= 0) {
 					(headerWords as HTMLElement).style.opacity = "1";
-					console.log(headerWords);
 				} else {
 					(headerWords as HTMLElement).style.opacity = "0";
-					console.log(headerWords);
 				}
 			});
 		});

@@ -56,7 +56,22 @@
 	div[data-rehype-pretty-code-fragment] {
 		padding: 1rem 0;
 
+		div[data-rehype-pretty-code-title] {
+			width: max-content;
+			float: right;
+			text-align: center;
+			font-weight: bold;
+			padding: 0.3rem 1rem;
+			margin-right: 2rem;
+			color: white;
+			background-color: #727272;
+			border-top-left-radius: 1rem;
+			border-top-right-radius: 1rem;
+		}
+
 		> pre {
+			clear: both;
+
 			padding: 1rem;
 			border-radius: 0.5rem;
 			box-shadow: var(--color-shadow);

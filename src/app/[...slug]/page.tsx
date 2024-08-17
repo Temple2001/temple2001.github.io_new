@@ -86,6 +86,7 @@ export function generateMetadata({ params }: { params: { slug: string[] } }) {
 	} else {
 		return {
 			title: target.title + " - " + blogdata.blogName,
+			description: target.description,
 		};
 	}
 }

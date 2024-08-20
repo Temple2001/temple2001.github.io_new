@@ -7,6 +7,7 @@ import { Container } from "@/components/layout/container";
 import ScrollEvent from "@/components/ScrollEvent";
 import HeaderWords from "@/components/layout/header-words";
 import { blogdata } from "@/lib/constants";
+import { Metadata } from "next";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
 	const { slug } = params;
@@ -73,7 +74,11 @@ export async function generateStaticParams() {
 	});
 }
 
-export function generateMetadata({ params }: { params: { slug: string[] } }) {
+export function generateMetadata({
+	params,
+}: {
+	params: { slug: string[] };
+}): Metadata {
 	const { slug } = params;
 	const target = allDocuments.find((docs) => {
 		return slug.join("/") === docs._raw.sourceFileDir;
@@ -85,8 +90,11 @@ export function generateMetadata({ params }: { params: { slug: string[] } }) {
 		};
 	} else {
 		return {
-			title: target.title + " - " + blogdata.blogName,
+			title: target.title + " | " + blogdata.blogName,
 			description: target.description,
+			openGraph: {
+				images: [`/opengraph/${slug.join("/")}`],
+			},
 		};
 	}
 }

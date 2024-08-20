@@ -1,11 +1,6 @@
 import { allDocuments } from "@/contentlayer/generated";
 import { ImageResponse } from "next/og";
 
-export const size = {
-	width: 1200,
-	height: 630,
-};
-
 export async function GET(
 	request: Request,
 	{ params }: { params: { slug: string[] } }
@@ -29,8 +24,8 @@ export async function GET(
 				}
 				<div
 					style={{
-						height: "640px",
 						width: "1200px",
+						height: "630px",
 						display: "flex",
 						flexDirection: "column",
 						alignItems: "center",
@@ -66,7 +61,8 @@ export async function GET(
 			</>
 		),
 		{
-			...size,
+			width: 1200,
+			height: 630,
 			fonts: [
 				{
 					name: "Pretendard",

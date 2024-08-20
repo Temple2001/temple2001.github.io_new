@@ -1,4 +1,4 @@
-import { allDocuments } from "@/contentlayer/generated";
+import { allDocuments, allPosts } from "@/contentlayer/generated";
 import { ImageResponse } from "next/og";
 
 export async function GET(
@@ -75,10 +75,10 @@ export async function GET(
 }
 
 export async function generateStaticParams() {
-	const docs = allDocuments;
+	const posts = allPosts;
 
-	return docs.map((doc) => {
-		const path = doc._raw.sourceFileDir;
+	return posts.map((post) => {
+		const path = post._raw.sourceFileDir;
 		return {
 			slug: path.split("/"),
 		};

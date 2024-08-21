@@ -6,7 +6,7 @@ import PostBox from "@/components/layout/postbox";
 import { Container } from "@/components/layout/container";
 import ScrollEvent from "@/components/ScrollEvent";
 import HeaderWords from "@/components/layout/header-words";
-import { blogdata } from "@/lib/constants";
+import { baseURL, blogdata } from "@/lib/constants";
 import { Metadata } from "next";
 
 export default async function ({ params }: { params: { slug: string[] } }) {
@@ -80,18 +80,20 @@ export function generateMetadata({
 	params: { slug: string[] };
 }): Metadata {
 	const { slug } = params;
-	const target = allDocuments.find((docs) => {
-		return slug.join("/") === docs._raw.sourceFileDir;
+	const target = allPosts.find((post) => {
+		return slug.join("/") === post._raw.sourceFileDir;
 	});
 
 	if (!target) {
 		return {
 			title: blogdata.blogName,
+			metadataBase: new URL(baseURL),
 		};
 	} else {
 		return {
 			title: target.title + " | " + blogdata.blogName,
 			description: target.description,
+			metadataBase: new URL(baseURL),
 			openGraph: {
 				images: [`/opengraph/${slug.join("/")}`],
 			},

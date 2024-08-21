@@ -11,3 +11,5 @@ export const blogdata: Blogdata = {
 	description: "Temple의 개발 관련 블로그입니다.",
 	githubLink: "https://github.com/Temple2001",
 };
+
+export const baseURL: string = "https://blog.templ.es";

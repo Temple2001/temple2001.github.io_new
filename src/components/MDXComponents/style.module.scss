@@ -1,5 +1,5 @@
 .heading {
-	font-weight: 700;
+	font-weight: 800;
 	margin-top: 3rem;
 	scroll-margin-top: 5rem;
 }
@@ -72,6 +72,7 @@
 
 	@media screen and (max-width: 1000px) {
 		font-size: 1rem;
+		font-weight: 400;
 	}
 }
 
@@ -91,6 +92,7 @@
 
 		@media screen and (max-width: 1000px) {
 			font-size: 1rem;
+			font-weight: 400;
 		}
 	}
 }
@@ -102,12 +104,14 @@
 
 	.li {
 		font-size: 1.2rem;
+		font-weight: 300;
 		padding: 0.5rem 0 0.5rem 1rem;
 		list-style-type: decimal;
 		margin-left: 2rem;
 
 		@media screen and (max-width: 1000px) {
 			font-size: 1rem;
+			font-weight: 400;
 		}
 	}
 }
@@ -144,7 +148,7 @@
 }
 
 .strong {
-	font-weight: 600;
+	font-weight: 700;
 	color: var(--color-text);
 	//background-color: var(--color-text-bold);
 	border-radius: 0.3rem;

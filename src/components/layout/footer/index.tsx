@@ -19,6 +19,17 @@ export default function Footer() {
 						© 2024 DongYoung Kim. All rights reserved.
 					</div>
 					<div className={`${styles.description}`}>
+						All product names, logos, brands, trademarks and registered
+						trademarks are property of their respective owners.
+						<br />
+						All company, product and service names used in this blog are for
+						identification purposes only.
+						<br />
+						Use of these names, trademarks and brands does not imply
+						endorsement.
+					</div>
+					<br />
+					<div className={`${styles.description}`}>
 						Thank you for visiting my blog. Your interest gives me a great
 						strength.
 					</div>

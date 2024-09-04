@@ -57,7 +57,7 @@ export const Category = defineDocumentType(() => ({
 /** @type {import('rehype-pretty-code').Options} */
 const rehypeOptions = {
 	grid: true,
-	theme: "github-dark",
+	theme: "one-dark-pro",
 };
 
 const contentSource = makeSource({

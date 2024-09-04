@@ -65,10 +65,11 @@
 }
 
 .p {
-	font-size: 1.2rem;
+	font-size: 1.1rem;
 	font-weight: 300;
 	line-height: 160%;
 	margin: 1rem 0;
+	letter-spacing: 0.2px;
 
 	@media screen and (max-width: 1000px) {
 		font-size: 1rem;
@@ -84,7 +85,7 @@
 	}
 
 	.li {
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		font-weight: 300;
 		padding: 0.5rem 0 0.5rem 0.5rem;
 		list-style-type: disc;
@@ -103,7 +104,7 @@
 	}
 
 	.li {
-		font-size: 1.2rem;
+		font-size: 1.1rem;
 		font-weight: 300;
 		padding: 0.5rem 0 0.5rem 1rem;
 		list-style-type: decimal;
@@ -127,7 +128,7 @@
 	}
 
 	.li {
-		font-size: 1.4rem;
+		font-size: 1.3rem;
 		font-weight: 700;
 		padding: 1rem 0 0 0.5rem;
 		list-style-type: disc;
@@ -149,7 +150,7 @@
 }
 
 .strong {
-	font-weight: 700;
+	font-weight: 600;
 	color: var(--color-text);
 	//background-color: var(--color-text-bold);
 	border-radius: 0.3rem;
@@ -175,9 +176,9 @@
 .a {
 	text-decoration: none;
 	color: inherit;
-	opacity: 60%;
+	opacity: 50%;
 	font-style: italic;
-	font-weight: 500;
+	font-weight: 300;
 	padding: 0 0.1rem 0.3rem 0.1rem;
 	margin-right: 0.3rem;
 
@@ -201,7 +202,8 @@
 .blockquote {
 	border-left: 5px solid rgba(0, 170, 0, 0.7);
 	background-color: rgba(0, 212, 0, 0.03);
-	padding: 0.5rem 1rem;
+	padding: 1rem 1rem;
+	margin: 2rem 0;
 
 	.title {
 		display: flex;
@@ -214,7 +216,7 @@
 			margin-right: 0.5rem;
 		}
 
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 		font-weight: 500;
 		color: rgba(0, 130, 0, 0.7);
 		padding-bottom: 1rem;
@@ -223,8 +225,8 @@
 	.content {
 		p {
 			margin: 0;
-			line-height: 1.5rem;
-			padding-bottom: 0.2rem;
+			padding-left: 1rem;
+			line-height: 2rem;
 		}
 	}
 }

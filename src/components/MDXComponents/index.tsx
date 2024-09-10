@@ -55,7 +55,7 @@ export const mdxComponents = (post: Post): MDXComponents => ({
 		</>
 	),
 
-	p: ({ children }) => <p className={styles.p}>{children}</p>,
+	p: ({ children }) => <div className={styles.p}>{children}</div>,
 
 	img: (props) => {
 		let imgSrc: string;
@@ -77,7 +77,7 @@ export const mdxComponents = (post: Post): MDXComponents => ({
 					loading="lazy"
 					className={styles.img}
 				/>
-				<p className={styles.description}>{props.alt}</p>
+				<div className={styles.description}>{props.alt}</div>
 			</div>
 		);
 	},

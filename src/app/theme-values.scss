@@ -2,6 +2,8 @@
 $bg-color-light: #fcfcfc;
 $text-color-light: #000;
 $text-bold-color-light: rgba(23, 21, 30, 0.15);
+$inline-code-color-light: #e5e8eb;
+
 $toc-text-color-light: rgba(0, 0, 0, 0.6);
 $toc-text-highlight-color-light: #000;
 
@@ -25,6 +27,8 @@ $scrollbar-color-light: #969696;
 $bg-color-dark: #202124;
 $text-color-dark: #fff;
 $text-bold-color-dark: rgba(95, 95, 95, 0.9);
+$inline-code-color-dark: #424244;
+
 $toc-text-color-dark: rgba(255, 255, 255, 0.65);
 $toc-text-highlight-color-dark: #fff;
 
@@ -42,7 +46,7 @@ $header-highlight-color-dark: rgba(0, 153, 255, 0.5);
 $navigation-color-dark: rgba(0, 0, 0, 0.75);
 $navigation-highlight-color-dark: rgba(255, 255, 255, 0.3);
 
-$scrollbar-color-dark: #d3d3d3;
+$scrollbar-color-dark: #c3c3c3;
 
 // Deprecated
 $darkmode-transition: 0s cubic-bezier(0.87, 0, 0.13, 1);

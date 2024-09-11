@@ -60,11 +60,12 @@
 			width: max-content;
 			float: right;
 			text-align: center;
-			font-weight: bold;
+			font-weight: 600;
 			padding: 0.3rem 1rem;
 			margin-right: 2rem;
-			color: white;
-			background-color: #727272;
+			color: var(--color-text);
+			//background-color: #727272;
+			background-color: var(--color-inline-code);
 			border-top-left-radius: 1rem;
 			border-top-right-radius: 1rem;
 		}
@@ -72,7 +73,7 @@
 		> pre {
 			clear: both;
 
-			padding: 1rem;
+			padding: 1.5rem 1rem 0.5rem 1rem;
 			border-radius: 0.5rem;
 			box-shadow: var(--color-shadow);
 			transition: box-shadow var(--style-darkmode-transition);
@@ -95,12 +96,13 @@
 				}
 
 				[data-highlighted-line] {
-					background-color: rgba(128, 255, 162, 0.2);
+					background-color: rgba(128, 255, 162, 0.13);
 				}
 
 				[data-highlighted-chars] {
-					background-color: rgba(255, 255, 255, 0.3);
-					border-radius: 0.2rem;
+					background-color: rgba(128, 255, 162, 0.13);
+					padding: 0.2rem;
+					border-radius: 0.4rem;
 				}
 
 				@media screen and (max-width: 1280px) {

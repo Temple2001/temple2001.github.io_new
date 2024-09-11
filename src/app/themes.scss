@@ -4,6 +4,7 @@ html[data-theme="light"] {
 	--color-bg: #{$bg-color-light};
 	--color-text: #{$text-color-light};
 	--color-text-bold: #{$text-bold-color-light};
+	--color-inline-code: #{$inline-code-color-light};
 	--color-toc-text: #{$toc-text-color-light};
 	--color-toc-text-highlight: #{$toc-text-highlight-color-light};
 	--color-box: #{$box-color-light};
@@ -23,6 +24,7 @@ html[data-theme="dark"] {
 	--color-bg: #{$bg-color-dark};
 	--color-text: #{$text-color-dark};
 	--color-text-bold: #{$text-bold-color-dark};
+	--color-inline-code: #{$inline-code-color-dark};
 	--color-toc-text: #{$toc-text-color-dark};
 	--color-toc-text-highlight: #{$toc-text-highlight-color-dark};
 	--color-box: #{$box-color-dark};

@@ -35,15 +35,12 @@ createdAt: 2024-08-07
 [백엔드 Repository](https://github.com/Temple2001/likelion-hackathon-back)
 
 ## 채팅 서버 구현
-[DRF로 웹소켓 채팅 서버 구현하기 (by minjae_dev.log)](https://velog.io/@mimijae/series/DRF%EB%A1%9C-%EC%9B%B9%EC%86%8C%EC%BC%93-%EC%B1%84%ED%8C%85-%EC%84%9C%EB%B2%84-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0)
-
-하지만 난 채팅을 구현해본 적이 단 한번도 없었고, 도대체 어떻게 구현해야 할지 막막하기만 할 뿐이었다. 그렇게 머리를 싸매던 도중 위와 같은 블로그 포스트를 보았고 약간의 희망을 되찾았다!
 
 Django에는 WebSocket 통신 구현을 도와주는 `Channels`라는 라이브러리가 존재한다. 이를 통해 간단한 메서드 호출만으로 WebSocket 통신 관리를 수행할 수 있어 채팅 구현에 정말 많은 도움이 됐다.
 
 자세한 채팅 구현 과정은 아래의 포스트로 작성해 놓았다.
 
-> 현재 작성중입니다.
+[Django channels를 이용한 웹소켓 서버 구현](/learning/backend/django-channel-chat/)
 
 ## 서버 배포
 이번 중앙 해커톤에서는 외부에서 URL로 접속 가능한 웹서비스를 만들어야 하기 때문에 서버 배포가 필수이다. WebSocket 채팅 기능이 포함되어 있기 때문에 서버 배포가 더 어려워지는 것 아닌가 하는 걱정이 이만저만이 아니었지만 채팅 구현 때 참고했던 위의 블로그에서 서버 배포까지 다루었기 때문에 마음이 편한 상태에서 개발에 집중할 수 있었다. (감사합니다... 😭)
@@ -145,7 +142,7 @@ jobs:
 
 ## 채팅 페이지 구현
 이렇게 이번 프로젝트에서 나의 역할은 끝나......는 줄 알았으나 프론트 파트 팀원들이 엄청난 양의 작업으로 고통스러워 하던 상황이라 어찌저찌 내가 채팅 웹 페이지까지 구현하게 되었다.
-![살려줘](https://findthatmeme.us-southeast-1.linodeobjects.com/aee2d1bc-b564-40a0-8466-cf3e9e21f565.jpg)
+![살려줘](meme1.png)
 오랜만에 하는 프론트엔드 개발이라 고된 행군길이 예상되었지만 오히려 채팅 서버를 직접 구현했었기 때문인지 그렇게 막막한 작업은 아니었다.
 
 ```js title="websocket.js"
